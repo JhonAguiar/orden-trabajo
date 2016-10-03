@@ -1,0 +1,49 @@
+.men-princi{
+	height: 70px;
+	width: 100%;
+	background-color: teal;
+	margin-top:-15px;
+	color: white;
+	padding-top: 30px;
+	padding-right: 30px;
+}
+
+.men-princi li{
+	list-style: none;
+}
+
+#nav-prin a{
+	color:white;
+}
+
+.titulo-seccion{
+	text-align: center;
+	padding-top:5px;
+	padding-bottom:5px;
+	font-family: "Helvetica Neue";
+}
+
+.titulo-seccion h3{
+	text-decoration: underline;
+}
+
+.miga-pan{
+	background-color: #00C1CC;
+	height: 30px;
+	width:100%;
+	padding:2px;
+	color:white;
+}
+
+.miga-pan a{
+	color:white;
+	margin-left: 5px;
+	margin-right: 3px;
+}
+
+.container{
+	width: 95%;
+	margin:auto;
+	margin-top:25px;
+	margin-bottom:50px;
+}
