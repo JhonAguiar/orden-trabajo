@@ -232,9 +232,27 @@ div[class^="menu-"] ul li:hover{
 }
 
 .field-medios{
-	border: 1px solid white;
+	border: 1px solid #eee;
 }
 
 .field-medio .row{
 	margin-left:20px;
+}
+
+.btn-send{
+	background-color: teal;
+	padding: 10px;
+	border: 1px solid teal;
+	border-radius: 0.5px;
+	color:white;
+	margin-right: 15px;
+}
+
+.btn-sender{
+	background-color: #004400;
+	padding: 10px;
+	border: 1px solid white;
+	border-radius: 0.5px;
+	color:white;
+	margin-right: 15px;
 }
