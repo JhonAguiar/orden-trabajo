@@ -1,0 +1,52 @@
+.contents-tab-ver{
+
+	width: 96.2%;
+	height: 400px;
+
+	margin: auto;
+}
+
+.vertical-one{
+	border-right: 1px solid white;
+	width: 20%;
+	height: 400px;
+	float:left;
+}
+.vertical-two{
+	width: 80%;
+	height: 400px;
+	float:left;
+	overflow: auto;
+	border: 1px solid teal;
+}
+
+.vertical-one ul div li{
+	background-color: white;
+	color: teal;
+	font-family: verdana;
+	text-align: center;
+	border-top:0.2px solid teal;
+	border-left:0.2px solid teal;
+	border-bottom:0.2px solid teal;
+	font-size: 13px;
+	height: 50px;
+	list-style: none;
+	font-weight: bolder;
+}
+
+.vertical-one ul div{
+	cursor: pointer;
+}
+
+div[class^="contenete"]{
+	display: none;
+}
+
+.btn-send{
+	background-color: teal;
+	padding: 10px;
+	border: 1px solid teal;
+	border-radius: 0.5px;
+	color:white;
+	margin-right: 15px;
+}

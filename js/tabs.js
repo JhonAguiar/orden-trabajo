@@ -7,8 +7,6 @@ var tab = {
 		$("[class^='content-']").fadeOut();
 		var a = $(".content-"+element)[0];
 		$(a).fadeIn();
-		console.log(a);
-		//$("[class^='content-']").css("display" , "none");
 	}
 }
 

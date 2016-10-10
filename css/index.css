@@ -219,3 +219,22 @@ div[class^="menu-"] ul li:hover{
 .no-display{
 	display: none;
 }
+
+.normal{
+	width:45%;
+	float:left;
+}
+.normal-one{
+	float: left;
+	clear:both;
+	width: 45%;
+	margin-left:20px;
+}
+
+.field-medios{
+	border: 1px solid white;
+}
+
+.field-medio .row{
+	margin-left:20px;
+}

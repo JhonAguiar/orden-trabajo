@@ -21,11 +21,6 @@
 							<span>Productos</span>
 						</li>
 					</a>
-					<a href="element/medios.php">
-						<li>
-							<span>Medios</span>
-						</li>
-					</a>
 					<a href="element/ciudades.php">
 						<li>
 							<span>Ciudades</span>
