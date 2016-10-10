@@ -56,7 +56,7 @@
 							<span>Facturación</span>
 						</li>
 					</a>
-					<a href="orden-trabajo.php">
+					<a href="generador-informes.php">
 						<li>
 							<span>Generador de Informes</span>
 						</li>
