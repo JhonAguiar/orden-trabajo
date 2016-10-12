@@ -12,6 +12,10 @@
 
 		}
 
+		public static function verificarLogin(){
+			
+		}
+
 		public static function logOut(){
 			session_start();
 			session_destroy();
