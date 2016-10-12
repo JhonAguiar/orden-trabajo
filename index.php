@@ -11,7 +11,7 @@
 			<div class="columns medium-6 medium-offset-3">
 				<section id="content-login">
 					<h4 class="text-center">SISTEMA GESTIÓN ORDENES DE TRABAJO</h4>
-					<form action="">
+					<form action="" method="post" class="logIn.php">
 						<div class="row">
 							<div class="medium-12">
 								<label for=""><i>Usuario</i>
@@ -30,6 +30,9 @@
 							</div>
 						</div>
 					</form>
+					<div class="text-center">
+						<a href="olvido-contrasena.php" style="color:teal; text-decoration: underline;">¿Has olvidado tu contraseña?</a>
+					</div>
 				</section>
 				<br>
 				<h5 class="text-center copyr">&copy; Copyright 2016</h5>

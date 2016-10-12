@@ -122,6 +122,18 @@
 								</div>
 								<div class="row">
 									<div class="large-6 columns">
+								      	<label>Contraseña
+								        	<input type="password" placeholder="Contraseña" name="pass" id="pass">
+								      	</label>
+								    </div>
+								    <div class="large-6 columns">
+								      	<label>Repetir Contraseña
+								        	<input type="password" placeholder="Repetir Contraseña" name="pass2" id="pass2">
+								      	</label>
+								    </div>
+								</div>
+								<div class="row">
+									<div class="large-6 columns">
 								      	<label>Telefono
 								        	<input type="text" placeholder="Nombre del Anunciante" name="anunciante" id="anunciante">
 								      	</label>
