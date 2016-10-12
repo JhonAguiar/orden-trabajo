@@ -35,7 +35,21 @@
 		</div>
 		
 		<div class="contener">
-			
+			<div class="row">
+				<div class="large-12 columns">
+					<button>Informe de Vencimientos OT</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<button>Informe de Vencimientos OT</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					<button>Informe de Vencimientos OT</button>
+				</div>
+			</div>
 		</div>
 		
 
