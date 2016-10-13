@@ -1,13 +1,20 @@
+<?php
+session_start();
+
+if($_SESSION['valido']){
+
+?>	
 <!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
-		<title>Anunciantes - OT</title>
+		<title>Ciudades - OT</title>
 		<link rel="stylesheet" href="../css/foundation.css">
 		<link rel="stylesheet" href="../css/clientes.css">
 		<link rel="stylesheet" href="../css/index.css">
 		<link rel="stylesheet" href="../css/font-awesome-4.6.3/css/font-awesome.css">
 		<link rel="stylesheet" href="../css/tabs.css">
+		<script src="../js/vendor/jquery.js"></script>
 	</head>
 	<body>
 		<menu class="men-princi">
@@ -66,19 +73,16 @@
 			</div>
 			<div class="content-two">
 				<div class="container">
-					<form id="" name="">
-						
+					<form id="" name="">	
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Codigo DANE
-						        	<input type="text" placeholder="Nombre del Anunciante" name="anunciante" id="anunciante">
+						        	<input type="text" placeholder="Codigo DANE" name="codigo" id="codigo">
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
 						      	<label>Ciudad
-						        	<select name="sector" id="sector">
-										<option value="">-- Seleccione una opción --</option>
-						        	</select>
+						        	<input type="text" name="ciudad" id="ciudad" placeholder="Ciudad">
 						      	</label>
 						    </div>
 						</div>
@@ -96,8 +100,15 @@
 
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
-	<script src="../js/vendor/jquery.js"></script>
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
 </html>
+
+<?php
+
+}else{
+	header('location: ../index.php');
+}
+
+?>

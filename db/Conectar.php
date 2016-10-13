@@ -5,7 +5,6 @@
 	 */
 	class Conectar {
 
-
 		public static function conexion(){
 
 			$host = "localhost";
@@ -14,7 +13,9 @@
 			$db = "ordenes-trabajo";
 
 	        $conexion = new mysqli($host, $user, $pass, $db);
-	        
+
+	        $conexion->set_charset("utf8");
+
 	        return $conexion;
 	    }
 	}

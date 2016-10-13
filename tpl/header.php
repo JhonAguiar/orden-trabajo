@@ -6,7 +6,7 @@
 	<div class="row text-center">
 		<div class="small-12 large-offset-4 large-4 columns">
 			<div class="circle-perfil">
-				
+				<img src="../../" alt="">
 			</div>
 			<div class="text-prin">
 				<b>Sistema de Gestión de Ordenes de Trabajo</b>

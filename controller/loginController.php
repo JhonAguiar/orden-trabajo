@@ -21,6 +21,7 @@ if(empty($log->logIn($user, $pass))){
 	$_SESSION['contrasena'] = $datos[0]["contrasena"];
 	$_SESSION['identificacion'] = $datos[0]["identificacion"];
 	$_SESSION['direccion'] = $datos[0]["direccion"];
+	$_SESSION['telefono'] = $datos[0]["telefono"];
 	$_SESSION['foto'] = $datos[0]["foto"];
 	$_SESSION['correo'] = $datos[0]["correo"];
 	$_SESSION['ciudad'] = $datos[0]["ciudad"];

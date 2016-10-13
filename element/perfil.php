@@ -2,7 +2,8 @@
 session_start();
 
 if($_SESSION['valido']){
-
+	include "../db/General.php";
+	$ciu_select = $_SESSION["ciudad"];
 ?>
 
 <!DOCTYPE html>
@@ -85,33 +86,45 @@ if($_SESSION['valido']){
 						    </div>
 						    <div class="large-6 columns">
 						      	<label>Dirección
-						        	<input type="text" placeholder="Dirección" name="direccion" id="direccion">
+						        	<input type="text" placeholder="Dirección" name="direccion" id="direccion" value="<?php echo $_SESSION['direccion']?>">
 						      	</label>
 						    </div>
 						</div>
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Ciudad
-						        	<select name="ciudad" id="ciudad">
+						        	<select name="ciudad" id="ciudad" >
 						        		<option value="">-- Seleccione una opción --</option>
+						        		<?php 
+						        			$gen = new General();
+											$ciu = $gen->ciudad();
+
+											for ($i=0; $i < count($ciu) ; $i++) { 
+												if($i+1 == $ciu_select){
+													echo '<option selected value="'.$ciu[$i]["id_ciudad"].'">'.$ciu[$i]["ciudad"].' - '.$ciu[$i]["departamento"].'</option>';
+												}else{
+													echo '<option value="'.$ciu[$i]["id_ciudad"].'">'.$ciu[$i]["ciudad"].' - '.$ciu[$i]["departamento"].'</option>';
+												}
+											}
+						        		 ?>
 						        	</select>
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
 						      	<label>Correo Electronico
-						        	<input type="text" placeholder="Nombre del Direccion" name="sector" id="sector">
+						        	<input type="text" placeholder="Nombre del Direccion" name="sector" id="sector" value="<?php echo $_SESSION['correo'] ?>">
 						      	</label>
 						    </div>
 						</div>
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Telefono
-						        	<input type="text" placeholder="Nombre del Anunciante" name="anunciante" id="anunciante">
+						        	<input type="text" placeholder="Telefono" name="telefono" id="telefono" value="<?php echo $_SESSION['telefono']?>">
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
 						      	<label>Rol
-						        	<select name="anunciante" id="anunciante">
+						        	<select name="rol" id="rol">
 						        		<option value="">-- Seleccione una opción --</option>
 						        	</select>
 						      	</label>
@@ -128,7 +141,6 @@ if($_SESSION['valido']){
 			</form>
 		</div>
 
-
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
 	<script src="../js/vendor/foundation.min.js"></script>
@@ -139,7 +151,7 @@ if($_SESSION['valido']){
 <?php
 
 }else{
-	header('location: index.php');
+	header('location: ../index.php');
 }
 
 ?>
