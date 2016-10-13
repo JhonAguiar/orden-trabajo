@@ -6,7 +6,7 @@
 			
 		</ul>
 		<ul style="float:right;">
-			<li><a href="index.php"><span class="fa fa-sign-in "></span> Salir</a><li>
+			<li><a href="controller/logoutController.php"><span class="fa fa-sign-in "></span> Salir</a><li>
 		</ul>
 	</nav>
 </menu>

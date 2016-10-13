@@ -11,22 +11,23 @@
 			<div class="columns medium-6 medium-offset-3">
 				<section id="content-login">
 					<h4 class="text-center">SISTEMA GESTIÓN ORDENES DE TRABAJO</h4>
-					<form action="" method="post" class="logIn.php">
+					<form action="controller/loginController.php" method="post" class="logIn.php">
 						<div class="row">
 							<div class="medium-12">
 								<label for=""><i>Usuario</i>
-									<input type="text" placeholder="Usuario">
+									<input type="text" name="usuario" placeholder="Usuario">
 								</label>
 							</div>
 							<div class="medium-12">
 								<label for=""><i>Contraseña</i>
-									<input type="password" placeholder="Contraseña">
+									<input type="password" name="clave" placeholder="Contraseña">
 								</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="large-12 text-center">
-								<a href="inicio.php" class="button teal">Ingresar</a>
+								<!--<a href="inicio.php" class="button teal">Ingresar</a>-->
+								<button class="button teal">Ingresar</button>
 							</div>
 						</div>
 					</form>

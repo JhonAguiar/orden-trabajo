@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if($_SESSION['valido']){
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -84,3 +91,12 @@
 	<script src="js/menu.js"></script>
 	<script src="js/view.js"></script>
 </html>
+
+
+<?php
+
+}else{
+	header('location: index.php');
+}
+
+?>

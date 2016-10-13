@@ -1,5 +1,12 @@
+<?php
+session_start();
+
+if($_SESSION['valido']){
+
+?>
+
 <!DOCTYPE html>
-	<html lang="en">
+	<html lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<title>Perfil - OT</title>
@@ -8,6 +15,15 @@
 		<link rel="stylesheet" href="../css/index.css">
 		<link rel="stylesheet" href="../css/font-awesome-4.6.3/css/font-awesome.css">
 		<link rel="stylesheet" href="../css/tabs.css">
+		<script src="../js/vendor/jquery.js"></script>
+		<link rel="stylesheet" href="../css/jquery-ui.css">
+		<script src="../js/vendor/jquery-ui.js"></script>
+		<script>
+		  $( function() {
+		    $( "#fec_nac" ).datepicker();
+		  } );
+		</script>
+
 	</head>
 	<body>
 		<menu class="men-princi">
@@ -47,24 +63,24 @@
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Nombre
-						        	<input type="text" placeholder="Nombre del Usuario" name="nombre" id="nombre">
+						        	<input type="text" placeholder="Nombre del Usuario" name="nombre" id="nombre" value="<?php echo $_SESSION['nombre'];?>">
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
 						      	<label>Identificación
-						        	<input type="text" placeholder="Identificación" name="nombre" id="nombre">
+						        	<input type="text" placeholder="Identificación" name="nombre" id="nombre" value="<?php echo $_SESSION['identificacion']; ?>">
 						      	</label>
 						    </div>
 						</div>
 						<div class="row">
 							<div class="large-3 columns">
 						      	<label>Usuario
-						        	<input type="text" placeholder="Usuario" name="usuario" id="usuario">
+						        	<input type="text" placeholder="Usuario" name="usuario" id="usuario" value="<?php echo $_SESSION['usuario']; ?>">
 						      	</label>
 						    </div>
 							<div class="large-3 columns">
 						      	<label>Fecha Nacimiento
-						        	<input type="text" placeholder="Fecha de Nacimiento" name="fec_nac" id="fec_nac">
+						        	<input type="text" placeholder="Fecha de Nacimiento" name="fec_nac" id="fec_nac" value="<?php echo $_SESSION['fec_nac']; ?>">
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
@@ -115,8 +131,15 @@
 
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
-	<script src="../js/vendor/jquery.js"></script>
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
 </html>
+
+<?php
+
+}else{
+	header('location: index.php');
+}
+
+?>
