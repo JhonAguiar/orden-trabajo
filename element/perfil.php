@@ -2,7 +2,7 @@
 session_start();
 
 if($_SESSION['valido']){
-	include "../db/General.php";
+	include "../model/General.php";
 	$ciu_select = $_SESSION["ciudad"];
 ?>
 

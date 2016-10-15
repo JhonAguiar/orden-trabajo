@@ -2,7 +2,8 @@
 session_start();
 
 if($_SESSION['valido']){
-
+	//include "../db/General.php";
+	$ciu_select = $_SESSION["ciudad"];
 ?>	
 <!DOCTYPE html>
 <html lang="es">
@@ -54,26 +55,21 @@ if($_SESSION['valido']){
 					<table>
 						<thead>
 							<tr>
-								<th>Nit</th>
-								<th>Cliente</th>
-								<th>Telefono</th>
+								<th>Codigo DANE</th>
+								<th>Ciudad</th>
+								<th>Departamento</th>
 								<th>Acciones</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+						<tbody id="mostrarCiudades">
+
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<div class="content-two">
 				<div class="container">
-					<form id="" name="">	
+					<form id="form_ciudad" name="form_ciudad">
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Codigo DANE
@@ -85,11 +81,17 @@ if($_SESSION['valido']){
 						        	<input type="text" name="ciudad" id="ciudad" placeholder="Ciudad">
 						      	</label>
 						    </div>
+						     <div class="large-6 columns">
+						      	<label>Departamento
+						        	<input type="text" name="departamento" id="departamento" placeholder="Departamento">
+						      	</label>
+						    </div>
 						</div>
 						<hr>
 						<div class="row">
 							<div class="large-12 columns text-right">
-								<button class="button success"> <i class="fa fa-send"></i> Enviar</button>
+								<button class="button warning" type="reset"> <i class="fa fa-send"></i> Limpiar</button>
+								<button class="button success" type="submit"> <i class="fa fa-send"></i> Enviar</button>
 							</div>
 						</div>
 					</form>
@@ -103,6 +105,7 @@ if($_SESSION['valido']){
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
+	<script src="../js/app/ciudad.js"></script>
 </html>
 
 <?php
