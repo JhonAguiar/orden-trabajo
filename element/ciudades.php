@@ -52,7 +52,7 @@ if($_SESSION['valido']){
 		<div class="contener">
 			<div class="content-one active">
 				<div class="container">
-					<table>
+					<table id="myTable">
 						<thead>
 							<tr>
 								<th>Codigo DANE</th>
