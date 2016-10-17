@@ -73,7 +73,7 @@ if($_SESSION['valido']){
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Codigo DANE
-						        	<input type="text" placeholder="Codigo DANE" name="codigo" id="codigo">
+						        	<input type="text" placeholder="Codigo DANE" name="codigo" id="codigo" required>
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">

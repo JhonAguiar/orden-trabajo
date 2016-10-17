@@ -262,3 +262,7 @@ div[class^="menu-"] ul li:hover{
     height: 90px;
     border: 1px solid #00C1CC;
 }
+
+.conteneter-tabla{
+	overflow: auto;
+}

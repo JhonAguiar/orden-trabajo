@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if($_SESSION['valido']){
+	
+?>
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -44,47 +50,43 @@
 		<div class="contener">
 			<div class="content-one active">
 				<div class="container">
-					<table>
-						<thead>
-							<tr>
-								<th>Nit</th>
-								<th>Cliente</th>
-								<th>Telefono</th>
-								<th>Telefono</th>
-								<th>Acciones</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="conteneter-tabla">
+						<table>
+							<thead>
+								<tr>
+									<th>Nit</th>
+									<th>Cliente</th>
+									<th>Telefono</th>
+									<th>Dirección</th>
+									<th>Acciones</th>
+								</tr>
+							</thead>
+							<tbody id="listarClientes">
+							
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 			<div class="content-two">
 				<div class="container">
-					<form action="">
+					<form id="form-cliente" name="form-cliente">
 						<div class="row">
 							<div class="large-4 columns">
 						      	<label>Fecha
-						        	<input type="text" placeholder="Fecha" name="fecha" id="fecha" value="<?php echo date('d/M/Y')?>" readonly>
+						        	<input type="text" placeholder="Fecha" name="fecha" id="fecha" value="<?php echo date('Y-m-d')?>" readonly>
 						      	</label>
 						    </div>
 						</div>
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Nombre del Cliente
-						        	<input type="text" placeholder="Nombre del Cliente" name="cliente" id="cliente">
+						        	<input type="text" placeholder="Nombre del Cliente" name="cliente" id="cliente" required>
 						      	</label>
 						    </div>
 						    <div class="large-5 columns">
 						      	<label>Nit
-						        	<input type="text" placeholder="Nit" name="nit" id="nit">
+						        	<input type="text" placeholder="Nit" name="nit" id="nit" required>
 						      	</label>
 						    </div>
 						    <div class="large-1 columns">
@@ -101,7 +103,7 @@
 						    </div>
 							<div class="large-6 columns">
 						      	<label>Persona de Contacto
-						        	<input type="text" placeholder="Persona de Contacto" name="persona-contacto" id="persona-contacto">
+						        	<input type="text" placeholder="Persona de Contacto" name="persona-contacto" id="persona-contacto" required>
 						      	</label>
 						    </div>
 						</div>
@@ -113,7 +115,7 @@
 						    </div>
 						    <div class="large-3 columns">
 						      	<label>Teléfono Pagador
-						        	<input type="text" placeholder="Teléfono Pagador" name="telefono-pagador" id="telefono-pagador">
+						        	<input type="text" placeholder="Teléfono Pagador" name="telefono-pagador" id="telefono-pagador" required>
 						      	</label>
 						    </div>
 						    <div class="large-3 columns">
@@ -125,9 +127,12 @@
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Ciudad
-						        	<select name="ciudad" id="ciudad">
-						        		<option value="" disabled selected>- Seleccione una opción--</option>
-						        	</select>
+						        	<label>
+							    	<input type="text" id="ciudad" name="ciudad" list="listanavegadores">
+							        <datalist id="listanavegadores">
+							          	<option label="Chrome" value="Chrome">         
+							        </datalist> 
+								</label>
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
@@ -142,14 +147,8 @@
 						        	<input type="text" placeholder="Pagina web" name="pagina-web" id="pagina-web">
 						      	</label>
 						    </div>
-						    <div class="large-4 columns">
-						      	<label>Tipo
-						        	<select name="tipo-cliente" id="tipo-cliente">
-						        		<option value="" disabled selected>-- Seleccione una opción--</option>
-						        	</select>
-						      	</label>
-						    </div>
-						    <div class="large-2 columns">
+						    
+						    <div class="large-6 columns">
 						      	<label>Cumpleaños
 						        	<input type="text" placeholder="Cumpleaños" name="cumpleanos" id="cumpleanos">
 						      	</label>
@@ -161,11 +160,34 @@
 						        	<textarea placeholder="Descripción" name="descrip-cliente" id="descrip-cliente"></textarea>
 						      	</label>
 						    </div>
+						    <div class="large-6 columns">
+						      	<label>Dirección
+						        	<input type="text" placeholder="Dirección" name="direccion" id="direccion">
+						      	</label>
+						    </div>
+						</div>
+						<div class="row">
+							<div class="large-6 columns">
+						      	<label>Consecutivo
+						        	<input type="text" placeholder="Consecutivo" name="consecutivo" id="consecutivo" required>
+						      	</label>
+						    </div>
+						    <div class="large-4 columns">Tipo Cliente
+						    	<label>
+							    	<input type="text" id="tipo-cliente" name="tipo-cliente" list="listanavegadores" required>
+							        <datalist id="listanavegadores">
+							          	<option label="Chrome" value="Chrome">
+							          	<option label="Firefox" value="Firefox">
+							          	<option label="Internet Explorer" value="Internet Explorer">
+							          	<option label="Safari" value="Safari">          
+							        </datalist> 
+								</label>
+						    </div>
 						</div>
 						<hr>
 						<div class="row">
 							<div class="large-12 columns text-right">
-								<button class="button success"> <i class="fa fa-send"></i> Enviar</button>
+								<button class="button success" type="submit"> <i class="fa fa-send"></i> Enviar</button>
 							</div>
 						</div>
 					</form>
@@ -179,4 +201,11 @@
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
+	<script src="../js/app/clientes.js"></script>
 </html>
+
+<?php
+}else{
+	header('location: ../index.php');
+}
+?>

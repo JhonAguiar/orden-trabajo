@@ -44,7 +44,6 @@ scope.listarCiudades = function(){
  * Enviar datos
  */
 scope.enviarCiudad = function( element ){
-	console.log($(element).serialize());
 	$.ajax({
 		method: "POST",
 		url: "../controller/GeneralController.php",
