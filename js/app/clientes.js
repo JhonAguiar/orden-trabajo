@@ -12,7 +12,11 @@ var Cliente = ( function(){
 
 	Cliente.prototype.bindEvents = function() {
 		var scope = this;
+		
 		this.listarClientes();
+
+		this.listarCiudades();
+
 		$("#form-cliente").on("submit" , function(e){
 			e.preventDefault();
 			scope.saveForm( this );
@@ -75,6 +79,9 @@ var Cliente = ( function(){
 		})
 	};
 
+	/**
+	 * COMPLETAR LOS DATOS DEL FORMULARIO
+	 */
 	Cliente.prototype.completarDatos = function( element ){
 		var scope = this;
 		var padre = $(element).parent().parent();
@@ -114,6 +121,25 @@ var Cliente = ( function(){
 		})
 	}
 
+
+	/**
+	 * COMPLETAR SELECT CIUDADES
+	 */
+	Cliente.prototype.listarCiudades = function(){
+		$.ajax({
+			url: "../controller/GeneralController.php",
+			method: "POST",
+			data: "a=listarCiudades",
+			success: function( data ){
+				data = $.parseJSON(data);
+				$.each(data , function(i,v){
+					$("<option>" , { "value" : v.ciudad , "text" : v.codigo  }).appendTo("#listadoCiudad");
+				})
+			},error: function(){
+
+			}
+		})
+	}
 
 	//Retornar Constructor
 	return Cliente;

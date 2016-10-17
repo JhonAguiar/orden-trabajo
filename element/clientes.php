@@ -128,9 +128,9 @@ if($_SESSION['valido']){
 							<div class="large-6 columns">
 						      	<label>Ciudad
 						        	<label>
-							    	<input type="text" id="ciudad" name="ciudad" list="listanavegadores">
-							        <datalist id="listanavegadores">
-							          	<option label="Chrome" value="Chrome">         
+							    	<input type="text" id="ciudad" name="ciudad" list="listadoCiudad">
+							        <datalist id="listadoCiudad">
+ 
 							        </datalist> 
 								</label>
 						      	</label>
@@ -174,8 +174,8 @@ if($_SESSION['valido']){
 						    </div>
 						    <div class="large-4 columns">Tipo Cliente
 						    	<label>
-							    	<input type="text" id="tipo-cliente" name="tipo-cliente" list="listanavegadores" required>
-							        <datalist id="listanavegadores">
+							    	<input type="text" id="tipo-cliente" name="tipo-cliente" list="listaClientes" required>
+							        <datalist id="listaClientes">
 							          	<option label="Chrome" value="Chrome">
 							          	<option label="Firefox" value="Firefox">
 							          	<option label="Internet Explorer" value="Internet Explorer">
@@ -187,6 +187,7 @@ if($_SESSION['valido']){
 						<hr>
 						<div class="row">
 							<div class="large-12 columns text-right">
+								<button class="button warning" type="reset"> <i class="fa fa-send"></i> Limpiar</button>
 								<button class="button success" type="submit"> <i class="fa fa-send"></i> Enviar</button>
 							</div>
 						</div>
