@@ -9,9 +9,36 @@
 /*!40101 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Volcando estructura de base de datos para ordenes-trabajo
+CREATE DATABASE IF NOT EXISTS `ordenes-trabajo` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
+USE `ordenes-trabajo`;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.anunciante
+CREATE TABLE IF NOT EXISTS `anunciante` (
+  `id_anunciante` int(12) NOT NULL AUTO_INCREMENT,
+  `cliente` int(12) NOT NULL DEFAULT '0',
+  `nombre` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `sector` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `estado` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id_anunciante`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 -- Volcando datos para la tabla ordenes-trabajo.anunciante: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `anunciante` DISABLE KEYS */;
 /*!40000 ALTER TABLE `anunciante` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.ciudad
+CREATE TABLE IF NOT EXISTS `ciudad` (
+  `id_ciudad` int(12) NOT NULL AUTO_INCREMENT,
+  `codigo` int(12) DEFAULT NULL,
+  `ciudad` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `departamento` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_ciudad`),
+  UNIQUE KEY `codigo` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1145 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Agrega una ciudad ';
 
 -- Volcando datos para la tabla ordenes-trabajo.ciudad: ~1.121 rows (aproximadamente)
 /*!40000 ALTER TABLE `ciudad` DISABLE KEYS */;
@@ -1139,6 +1166,34 @@ INSERT INTO `ciudad` (`id_ciudad`, `codigo`, `ciudad`, `departamento`) VALUES
 	(1140, 0, 'NO EXISTE', 'NO EXISTE');
 /*!40000 ALTER TABLE `ciudad` ENABLE KEYS */;
 
+
+-- Volcando estructura para tabla ordenes-trabajo.cliente
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id_cliente` int(12) NOT NULL AUTO_INCREMENT,
+  `cliente` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `consecutivo` int(12) NOT NULL,
+  `nit` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `fecha` date NOT NULL DEFAULT '0000-00-00',
+  `nombre_corto` varchar(100) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `direccion` varchar(100) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `correo` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `pagina_web` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `persona_contacto` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `pagador` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `telefono_pagador` int(12) NOT NULL DEFAULT '0',
+  `movil_pagador` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `ciudad` int(12) NOT NULL DEFAULT '0',
+  `cumpleanos` varchar(150) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `tipo_cliente` int(12) NOT NULL DEFAULT '19',
+  `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_cliente`),
+  UNIQUE KEY `FK_CONSECUTIVO` (`consecutivo`),
+  KEY `FK_CIUDAD_CLIENTE` (`ciudad`),
+  KEY `FK_TIP_CLIENTE` (`tipo_cliente`),
+  CONSTRAINT `FK_TIP_CLIENTE` FOREIGN KEY (`tipo_cliente`) REFERENCES `tipo_monitoreo` (`id_tipo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1044 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Agrega un cliente';
+
 -- Volcando datos para la tabla ordenes-trabajo.cliente: ~620 rows (aproximadamente)
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`id_cliente`, `cliente`, `consecutivo`, `nit`, `fecha`, `nombre_corto`, `direccion`, `correo`, `pagina_web`, `persona_contacto`, `pagador`, `telefono_pagador`, `movil_pagador`, `ciudad`, `cumpleanos`, `tipo_cliente`, `descripcion`, `estado`) VALUES
@@ -1764,25 +1819,112 @@ INSERT INTO `cliente` (`id_cliente`, `cliente`, `consecutivo`, `nit`, `fecha`, `
 	(1043, 'dasdasdasd', 23, '21312312-32', '2016-10-17', 'asd', '', '', '', '', '', 0, '', 0, '', 1, '', 1);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
+
+-- Volcando estructura para tabla ordenes-trabajo.facturacion
+CREATE TABLE IF NOT EXISTS `facturacion` (
+  `id_facturacion` int(12) NOT NULL AUTO_INCREMENT,
+  `cliente` int(12) NOT NULL DEFAULT '0',
+  `fecha` date NOT NULL DEFAULT '0000-00-00',
+  `direccion` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `telefono` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `orden` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  `iva` bit(1) NOT NULL DEFAULT b'0',
+  `tipo_moneda` int(12) NOT NULL DEFAULT '0',
+  `estado` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_facturacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 -- Volcando datos para la tabla ordenes-trabajo.facturacion: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `facturacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `facturacion` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.facturar
+CREATE TABLE IF NOT EXISTS `facturar` (
+  `id_facturar` int(12) NOT NULL AUTO_INCREMENT,
+  `orden_trabajo` int(12) DEFAULT NULL,
+  `cliente` int(12) DEFAULT NULL,
+  `facturacion` int(12) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_facturar`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla ordenes-trabajo.facturar: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `facturar` DISABLE KEYS */;
 /*!40000 ALTER TABLE `facturar` ENABLE KEYS */;
 
+
+-- Volcando estructura para tabla ordenes-trabajo.forma_pago
+CREATE TABLE IF NOT EXISTS `forma_pago` (
+  `id_forma_pago` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_forma_pago`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 -- Volcando datos para la tabla ordenes-trabajo.forma_pago: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `forma_pago` DISABLE KEYS */;
 /*!40000 ALTER TABLE `forma_pago` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.informacion_secundaria
+CREATE TABLE IF NOT EXISTS `informacion_secundaria` (
+  `id_info` int(12) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(12) DEFAULT NULL,
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `facturacion` int(12) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_info`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla ordenes-trabajo.informacion_secundaria: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `informacion_secundaria` DISABLE KEYS */;
 /*!40000 ALTER TABLE `informacion_secundaria` ENABLE KEYS */;
 
+
+-- Volcando estructura para tabla ordenes-trabajo.orden_trabajo
+CREATE TABLE IF NOT EXISTS `orden_trabajo` (
+  `id_orden_trabajo` int(12) NOT NULL AUTO_INCREMENT,
+  `cliente` int(12) DEFAULT NULL,
+  `anunciante` int(12) DEFAULT NULL,
+  `tipo_ot` int(12) DEFAULT NULL,
+  `aplicacion` text COLLATE utf8_spanish_ci,
+  `valor_impresion` int(12) DEFAULT NULL,
+  `valor_radio` int(12) DEFAULT NULL,
+  `valor_television` int(12) DEFAULT NULL,
+  `valor_internet` int(12) DEFAULT NULL,
+  `valor_analisis` int(12) DEFAULT NULL,
+  `tipo_alerta` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `alertas` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `observaciones` text COLLATE utf8_spanish_ci,
+  `marca` text COLLATE utf8_spanish_ci,
+  `entorno` text COLLATE utf8_spanish_ci,
+  `competencias` text COLLATE utf8_spanish_ci,
+  `sectores` text COLLATE utf8_spanish_ci,
+  `categoria` text COLLATE utf8_spanish_ci,
+  `actividad` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `facturacion` int(12) DEFAULT NULL,
+  `desde` date DEFAULT NULL,
+  `hasta` date DEFAULT NULL,
+  `comercial` int(12) DEFAULT NULL,
+  `observaciones_2` text COLLATE utf8_spanish_ci,
+  `firma_1` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `firma_2` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `firma_3` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_orden_trabajo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 -- Volcando datos para la tabla ordenes-trabajo.orden_trabajo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `orden_trabajo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `orden_trabajo` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.producto
+CREATE TABLE IF NOT EXISTS `producto` (
+  `id_producto` int(11) NOT NULL AUTO_INCREMENT,
+  `producto` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla ordenes-trabajo.producto: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
@@ -1795,9 +1937,27 @@ INSERT INTO `producto` (`id_producto`, `producto`) VALUES
 	(6, 'FREE PRESS');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 
+
+-- Volcando estructura para tabla ordenes-trabajo.rol
+CREATE TABLE IF NOT EXISTS `rol` (
+  `id_rol` int(12) NOT NULL AUTO_INCREMENT,
+  `usuario` int(12) DEFAULT NULL,
+  `rol` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_rol`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Agrega el rol al usuario';
+
 -- Volcando datos para la tabla ordenes-trabajo.rol: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.tipo_moneda
+CREATE TABLE IF NOT EXISTS `tipo_moneda` (
+  `id_tipo_moneda` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_tipo_moneda`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla ordenes-trabajo.tipo_moneda: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `tipo_moneda` DISABLE KEYS */;
@@ -1806,6 +1966,14 @@ INSERT INTO `tipo_moneda` (`id_tipo_moneda`, `descripcion`) VALUES
 	(2, 'DOLARES'),
 	(3, 'EUROS');
 /*!40000 ALTER TABLE `tipo_moneda` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.tipo_monitoreo
+CREATE TABLE IF NOT EXISTS `tipo_monitoreo` (
+  `id_tipo` int(12) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_tipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- Volcando datos para la tabla ordenes-trabajo.tipo_monitoreo: ~20 rows (aproximadamente)
 /*!40000 ALTER TABLE `tipo_monitoreo` DISABLE KEYS */;
@@ -1831,6 +1999,27 @@ INSERT INTO `tipo_monitoreo` (`id_tipo`, `tipo`) VALUES
 	(19, 'NINGUNO'),
 	(20, 'NINGUNO');
 /*!40000 ALTER TABLE `tipo_monitoreo` ENABLE KEYS */;
+
+
+-- Volcando estructura para tabla ordenes-trabajo.usuario
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id_usuario` int(12) NOT NULL AUTO_INCREMENT,
+  `identificacion` int(12) DEFAULT NULL,
+  `usuario` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nombre` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `contrasena` int(12) DEFAULT NULL,
+  `fec_nac` date DEFAULT NULL,
+  `direccion` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `foto` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `ciudad` int(12) DEFAULT NULL,
+  `correo` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `telefono` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `rol` int(12) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  KEY `FK1_CIUDAD_USUARIO` (`ciudad`),
+  CONSTRAINT `FK1_CIUDAD_USUARIO` FOREIGN KEY (`ciudad`) REFERENCES `ciudad` (`id_ciudad`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Tabla de ususarios. registra los usuarios ';
 
 -- Volcando datos para la tabla ordenes-trabajo.usuario: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
