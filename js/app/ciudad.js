@@ -1,13 +1,17 @@
 var scope = {};
 
 var validar = 1;
+var start = 0;
+var resPPage = 10;
+
+
 /**
  * Función Listar Ciudades
  */
-scope.listarCiudades = function(){
+scope.listarCiudades = function(i, c){
 	$("#mostrarCiudades").empty();
 	$.ajax({
-		data: "a=listarCiudades",
+		data: "a=listarCiudades&i="+i+"&c="+c,
 		method: "POST",
   		url: "../controller/GeneralController.php",
 		success: function(data) {
@@ -100,12 +104,35 @@ scope.completarDatos = function( element ){
 	$("#departamento").val(departamento);
 	$("#taber-two").click();
 	validar = 0;
+};
+
+
+function pagination(action){
+    if(action === "add"){
+        start += resPPage;
+    }
+    if(action === "remove"){
+        if(start >= 10){
+            start -= resPPage;
+        }
+    }
+    scope.listarCiudades(start, resPPage);
 }
+
+
+$(".pagination #previous").on("click", function(){
+    pagination("remove");
+});
+
+$(".pagination #after").on("click", function(){
+    pagination("add");
+});
+
 
 $(document).ready(function(){
 
 
-	scope.listarCiudades();
+	scope.listarCiudades(start, resPPage);
 	// Eventos envio de datos
 	$("#form_ciudad").on("submit", function(e){
 		e.preventDefault();
@@ -124,3 +151,4 @@ $(document).ready(function(){
 		scope.completarDatos( this );
 	})
 })
+

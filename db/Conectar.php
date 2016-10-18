@@ -8,8 +8,8 @@
 		public static function conexion(){
 
 			$host = "localhost";
-			$user = "root";
-			$pass = "";
+			$user = "oTUser";
+			$pass = "aHJDSsxas12";
 			$db = "ordenes-trabajo";
 
 	        $conexion = new mysqli($host, $user, $pass, $db);

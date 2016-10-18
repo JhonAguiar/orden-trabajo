@@ -1,0 +1,4 @@
+CREATE USER 'oTUser'@'localhost' IDENTIFIED BY 'aHJDSsxas12';
+GRANT ALL PRIVILEGES ON * . * TO 'oTUser'@'localhost';
+FLUSH PRIVILEGES;
+
