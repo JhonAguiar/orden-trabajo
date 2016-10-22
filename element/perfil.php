@@ -98,7 +98,6 @@ if($_SESSION['valido']){
 						        		<?php 
 						        			$gen = new General();
 											$ciu = $gen->ciudad();
-
 											for ($i=0; $i < count($ciu) ; $i++) { 
 												if($i+1 == $ciu_select){
 													echo '<option selected value="'.$ciu[$i]["id_ciudad"].'">'.$ciu[$i]["ciudad"].' - '.$ciu[$i]["departamento"].'</option>';

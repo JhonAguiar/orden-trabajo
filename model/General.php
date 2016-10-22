@@ -13,10 +13,10 @@
 		/**
 		 * Funcion listar ciudades
 		 */
-		public function ciudad($start, $cant){
+		public function ciudad(){
 			$response = array();
 			
-			$sql = "SELECT codigo, ciudad, departamento FROM ciudad LIMIT ".$start.", ".$cant.";";
+			$sql = "SELECT id_ciudad , codigo, ciudad, departamento FROM ciudad";
 
 			$result = $this->conexion->query($sql);
 			

@@ -65,6 +65,17 @@ if ($_SESSION['valido']) {
 
                             </tbody>
                         </table>
+                        <ul class="pagination">
+		                    <li class="arrow unavailable" id="previous"><a href="#">&laquo;</a></li>
+		                    <li class="current"><a href="">1</a></li>
+		                    <li><a href="">2</a></li>
+		                    <li><a href="">3</a></li>
+		                    <li><a href="">4</a></li>
+		                    <li class="unavailable"><a href="">&hellip;</a></li>
+		                    <li><a href="">12</a></li>
+		                    <li><a href="">13</a></li>
+		                    <li class="arrow" id="after">&raquo;</li>
+		                </ul>
                     </div>
                 </div>
                 <div class="content-two">
@@ -97,19 +108,6 @@ if ($_SESSION['valido']) {
                         </form>
                     </div>
                 </div>
-
-
-                <ul class="pagination">
-                    <li class="arrow unavailable" id="previous"><a href="#">&laquo;</a></li>
-                    <li class="current"><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li class="unavailable"><a href="">&hellip;</a></li>
-                    <li><a href="">12</a></li>
-                    <li><a href="">13</a></li>
-                    <li class="arrow" id="after">&raquo;</li>
-                </ul>
             </div>
 
 
