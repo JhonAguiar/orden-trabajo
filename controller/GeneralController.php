@@ -5,7 +5,7 @@ require_once "../model/General.php";
 switch ($_POST["a"]) {
 	case 'listarCiudades':
 		$gen = new General();
-		$ciu = $gen->ciudad($_POST["i"], $_POST["c"]);
+		$ciu = $gen->ciudad();
 
 		echo json_encode($ciu);
 	break;

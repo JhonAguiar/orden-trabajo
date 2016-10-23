@@ -2,36 +2,22 @@ var scope = {};
 
 var validar = 1;
 var start = 0;
-var resPPage = 10;
-
+var end = 10;
+var listado;
 
 /**
  * Función Listar Ciudades
  */
-scope.listarCiudades = function(i, c){
+scope.listarCiudades = function(){
 	$("#mostrarCiudades").empty();
 	$.ajax({
-		data: "a=listarCiudades&i="+i+"&c="+c,
+		data: "a=listarCiudades",
 		method: "POST",
   		url: "../controller/GeneralController.php",
 		success: function(data) {
 			if (data.length > 0) {
-				data = $.parseJSON(data);
-				$.each( data , function ( i , v ) {
-					$("<tr>" , { "id" : "eliminarRegistroNo-"+v.codigo }).append(
-						$("<td>", { "text": v.codigo } ),
-						$("<td>", { "text": v.ciudad} ),
-						$("<td>", { "text": v.departamento } ),
-						$("<td>").append(
-							$("<a>" , { "href" : "" , "class" : "eliminar-registro" ,"style": "color:red;"}).append(
-								$("<i>" , { "class" : "fa fa-remove" })
-							),
-							$("<a>" , { "href" : "" ,"class" :"editar-registro" , "style": "margin-left:20px; color:blue;"  }).append(
-								$("<i>" , { "class" : "fa fa-edit" })
-							)
-						)
-					).appendTo("#mostrarCiudades");
-				} );
+				listado = $.parseJSON(data);
+                                show();
 			}else{
 				$( "<tr>" ).append(
 					$( "<td>" , { "colspan" : "4" , "text" : "No hay ciudades disponibles" } )
@@ -106,25 +92,49 @@ scope.completarDatos = function( element ){
 	validar = 0;
 };
 
+function show(){
+    var datos = listado.slice(start, end);
+    $("#mostrarCiudades").html('');
+    $.each( datos , function ( i , v ) {
+        $("<tr>" , { "id" : "eliminarRegistroNo-"+v.codigo }).append(
+            $("<td>", { "text": v.codigo } ),
+            $("<td>", { "text": v.ciudad} ),
+            $("<td>", { "text": v.departamento } ),
+            $("<td>").append(
+                    $("<a>" , { "href" : "" , "class" : "eliminar-registro" ,"style": "color:red;"}).append(
+                            $("<i>" , { "class" : "fa fa-remove" })
+                    ),
+                    $("<a>" , { "href" : "" ,"class" :"editar-registro" , "style": "margin-left:20px; color:blue;"  }).append(
+                            $("<i>" , { "class" : "fa fa-edit" })
+                    )
+            )
+        ).appendTo("#mostrarCiudades");
+    } );
+}
+
 
 function pagination(action){
     if(action === "add"){
-        start += resPPage;
+        start += 10;
+        end += 10;
     }
     if(action === "remove"){
         if(start >= 10){
-            start -= resPPage;
+            start -= 10;
+            end -= 10;
         }
     }
-    scope.listarCiudades(start, resPPage);
+    show();
 }
 
 
 $(".pagination #previous").on("click", function(){
+    console.log("atras");
     pagination("remove");
 });
 
 $(".pagination #after").on("click", function(){
+    console.log("adelante");
     pagination("add");
 });
 
@@ -132,7 +142,7 @@ $(".pagination #after").on("click", function(){
 $(document).ready(function(){
 
 
-	scope.listarCiudades(start, resPPage);
+	scope.listarCiudades();
 	// Eventos envio de datos
 	$("#form_ciudad").on("submit", function(e){
 		e.preventDefault();
