@@ -1,3 +1,5 @@
+var validar = 1;
+
 /**
  * CLOSURE ESPECIFÍCO
  */
@@ -10,9 +12,14 @@ var Usuario = ( function(){
 		var scope = this;
 		
 		this.listarU();
+
+		$( "#form-user" ).on( "submit" , function(e){
+			e.preventDefault();
+			scope.envioDatos();
+		} )
 	}
 
-	Usuario.prototype.listarU= function(first_argument) {
+	Usuario.prototype.listarU= function() {
 		$.ajax({
 			data: "a=listarUsuarios",
 			url: "../controller/UserController.php",
@@ -42,6 +49,20 @@ var Usuario = ( function(){
 			}
 		})
 	};
+
+	Usuario.prototype.envioDatos = function(element) {
+		$.ajax({
+			data: "",
+			url: "",
+			method: "",
+			success: function( data ){
+
+			},error: function(){
+
+			}
+		})
+	};
+
 
 	return Usuario;
 }() );

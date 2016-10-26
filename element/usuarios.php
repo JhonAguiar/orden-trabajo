@@ -19,7 +19,7 @@
 					</div>
 				</li>
 			</ul>
-		</menu>
+		</menu>f
 		<div class="miga-pan">
 			<a href="../inicio.php">
 				Home
@@ -67,7 +67,7 @@
 			</div>
 			<div class="content-two">
 				<div class="container">
-					<form id="" name="">
+					<form id="form-user" name="form-user">
 						<div class="row">
 							<div class="large-3 columns" style="text-align: center">
 								<img src="../img/no-photo.png" alt="">
