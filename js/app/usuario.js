@@ -7,6 +7,12 @@ var Usuario = ( function(){
 	}
 
 	Usuario.prototype.bindEvents = function(){
+		var scope = this;
+		
+		this.listarU();
+	}
+
+	Usuario.prototype.listarU= function(first_argument) {
 		$.ajax({
 			data: "a=listarUsuarios",
 			url: "../controller/UserController.php",
@@ -35,7 +41,7 @@ var Usuario = ( function(){
 
 			}
 		})
-	}
+	};
 
 	return Usuario;
 }() );
