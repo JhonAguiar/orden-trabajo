@@ -43,13 +43,13 @@ var Cliente = ( function(){
 							$( "<td>" , { "text" : v.telefono_pagador } ),
 							$( "<td>" , { "text" : v.direccion } ),
 							$("<td>").append(
-							$("<a>" , { "href" : "" , "class" : "eliminar-registro" ,"style": "color:red;"}).append(
-								$("<i>" , { "class" : "fa fa-remove" })
-							),
-							$("<a>" , { "href" : "" ,"class" :"editar-registro" , "style": "margin-left:20px; color:blue;"  }).append(
-								$("<i>" , { "class" : "fa fa-edit" })
+								$("<a>" , { "href" : "" , "class" : "eliminar-registro" ,"style": "color:red;"}).append(
+									$("<i>" , { "class" : "fa fa-remove" })
+								),
+								$("<a>" , { "href" : "" ,"class" :"editar-registro" , "style": "margin-left:20px; color:blue;"  }).append(
+									$("<i>" , { "class" : "fa fa-edit" })
+								)
 							)
-						)
 						).appendTo("#listarClientes");
 					})
 				}else{
@@ -120,7 +120,6 @@ var Cliente = ( function(){
 			}
 		})
 	}
-
 
 	/**
 	 * COMPLETAR SELECT CIUDADES

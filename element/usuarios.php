@@ -44,7 +44,7 @@
 		<div class="contener">
 			<div class="content-one active">
 				<div class="container">
-					<table>
+					<table id="mostrarUsuario">
 						<thead>
 							<tr>
 								<th>Identificación</th>
@@ -166,4 +166,5 @@
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
+	<script src="../js/app/usuario.js"></script>
 </html>

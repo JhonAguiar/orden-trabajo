@@ -2,7 +2,7 @@
 session_start();
 
 if($_SESSION['valido']){
-
+	
 ?>
 
 <!DOCTYPE html>
