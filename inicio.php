@@ -13,8 +13,17 @@ if($_SESSION['valido']){
 		<link rel="stylesheet" href="css/foundation.css">
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.css">
+		<link rel="stylesheet" href="css/login2.css">
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/login.js"></script>
 	</head>
 	<body>
+		<div id="cont-preload">
+			<div id="preload">
+				<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
 		<?php include "tpl/header.php"; ?>
 		<?php include "tpl/menu.php" ; ?>
 		<section class="row">
@@ -87,7 +96,7 @@ if($_SESSION['valido']){
 
 		<?php include "tpl/menu-prin.php" ?>
 	</body>
-	<script src="js/vendor/jquery.js"></script>
+	
 	<script src="js/menu.js"></script>
 	<script src="js/view.js"></script>
 </html>
