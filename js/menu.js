@@ -19,20 +19,22 @@ var menu = {
  */
 $(document).ready(function(){
 	//EVENTO MENU
-	$("[id^='item']").on("click" , function(e){
+	$( "[id^='item']" ).on("click" , function(e){
 		e.preventDefault();
 		var item = $(this).attr("id");
 		var separar = item.split("-"); 
 		var elemento = separar[1];
-		menu.abrirmenu(elemento);
+		menu.abrirmenu( elemento );
 	});
 
 	$( ".close-menu" ).on("click" , function(){
 		$( ".menu" ).fadeOut();
+		$( "body" ).css("overflow-y" , "auto");
 	})
 
 	$( "#nav-link" ).on("click" , function(){
 		$( ".menu" ).fadeIn();
+		$( "body" ).css("overflow-y" , "hidden");
 	})
 
 	$( document ).keyup(function(e){
