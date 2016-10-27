@@ -19,7 +19,7 @@
 					</div>
 				</li>
 			</ul>
-		</menu>f
+		</menu>
 		<div class="miga-pan">
 			<a href="../inicio.php">
 				Home
@@ -44,7 +44,7 @@
 		<div class="contener">
 			<div class="content-one active">
 				<div class="container">
-					<table id="mostrarUsuario">
+					<table >
 						<thead>
 							<tr>
 								<th>Identificación</th>
@@ -54,13 +54,8 @@
 								<th>Acciones</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+						<tbody id="mostrarUsuario">
+							
 						</tbody>
 					</table>
 				</div>
@@ -158,8 +153,6 @@
 				</div>
 			</div>
 		</div>
-		
-
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
 	<script src="../js/vendor/jquery.js"></script>

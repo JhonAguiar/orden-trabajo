@@ -47,19 +47,13 @@
 					<table>
 						<thead>
 							<tr>
-								<th>Nit</th>
-								<th>Cliente</th>
-								<th>Telefono</th>
+								<th>id</th>
+								<th>Producto</th>
 								<th>Acciones</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+						<tbody id="mostrarProductos">
+							
 						</tbody>
 					</table>
 				</div>
@@ -100,4 +94,5 @@
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
+	<script src="../js/app/productos.js"></script>
 </html>

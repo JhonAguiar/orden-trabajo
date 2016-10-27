@@ -72,6 +72,20 @@
 			return $codigo;
 		}
 
+
+		/**
+		 *  listar Productos
+		 */
+		public function listarProd(){
+			$sql = "SELECT * FROM producto";
+
+			$result = $this->conexion->query($sql);
+
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+			return $response;
+		}
 	}
 
 ?>

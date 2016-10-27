@@ -27,6 +27,12 @@ switch ($_POST["a"]) {
 			echo json_encode( array( 'success'=>false ) );
 		}
 	break;
+	case 'listarProductos':
+		$gen = new General();
+		$list = $gen->listarProd();
+
+		echo json_encode($list);
+	break;
 }
 
 

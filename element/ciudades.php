@@ -52,19 +52,21 @@ if ($_SESSION['valido']) {
             <div class="contener">
                 <div class="content-one active">
                     <div class="container">
-                        <table id="myTable">
-                            <thead>
-                                <tr>
-                                    <th>Codigo DANE</th>
-                                    <th>Ciudad</th>
-                                    <th>Departamento</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="mostrarCiudades">
+                        <div class="conteneter-tabla">
+                            <table id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th>Codigo DANE</th>
+                                        <th>Ciudad</th>
+                                        <th>Departamento</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mostrarCiudades">
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                         <ul class="pagination">
 		                    <li class="arrow unavailable" id="previous">&laquo;</li>
 		                    <li class="current"><a href="">1</a></li>
