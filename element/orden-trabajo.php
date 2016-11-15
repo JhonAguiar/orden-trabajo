@@ -206,7 +206,7 @@
                                     <div class="row">
                                         <div class="large-12 columns">
                                             <label>Observaciones de Cierre
-                                                <textarea placeholder="Marca" name="marca" id="marca"></textarea>
+                                                <textarea placeholder="Observaciones de Cierre" name="observ_cierre" id="observ_cierre"></textarea>
                                             </label>
                                         </div>
                                     </div>
@@ -351,13 +351,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
-
-
     </body>
     <?php include "../tpl/menu-principal.php" ?>
     <script src="../js/vendor/jquery.js"></script>

@@ -8,7 +8,11 @@
 			$user = $usr->listUser();
 			echo json_encode( $user );	
 		break;
-		
+		case 'datosUsuario':
+			$usr = new Usuario();
+			$user = $usr->completUser( $_POST["id"] );
+			echo json_encode( $user );
+		break;
 		default:
 			echo json_encode("fail");
 		break;

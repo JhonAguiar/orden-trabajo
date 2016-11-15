@@ -112,7 +112,6 @@ if ($_SESSION['valido']) {
                 </div>
             </div>
 
-
         </body>
         <?php include "../tpl/menu-principal.php" ?>
         <script src="../js/vendor/foundation.min.js"></script>

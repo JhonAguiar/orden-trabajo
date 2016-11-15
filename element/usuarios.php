@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+if($_SESSION['valido']){
+	
+?>
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -44,25 +50,28 @@
 		<div class="contener">
 			<div class="content-one active">
 				<div class="container">
-					<table >
-						<thead>
-							<tr>
-								<th>Identificación</th>
-								<th>Nombre</th>
-								<th>Telefono</th>
-								<th>dirección</th>
-								<th>Acciones</th>
-							</tr>
-						</thead>
-						<tbody id="mostrarUsuario">
-							
-						</tbody>
-					</table>
+					<div class="conteneter-tabla">
+						<table >
+							<thead>
+								<tr>
+									<th>Identificación</th>
+									<th>Nombre</th>
+									<th>Telefono</th>
+									<th>dirección</th>
+									<th>Acciones</th>
+								</tr>
+							</thead>
+							<tbody id="mostrarUsuario">
+								
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 			<div class="content-two">
 				<div class="container">
 					<form id="form-user" name="form-user">
+					 	<input type="hidden" id="id_usuario" name="id_usuario">
 						<div class="row">
 							<div class="large-3 columns" style="text-align: center">
 								<img src="../img/no-photo.png" alt="">
@@ -80,7 +89,7 @@
 								    </div>
 								    <div class="large-6 columns">
 								      	<label>Identificación
-								        	<input type="text" placeholder="Identificación" name="nombre" id="nombre">
+								        	<input type="text" placeholder="Identificación" name="identificacion" id="identificacion">
 								      	</label>
 								    </div>
 								</div>
@@ -111,14 +120,14 @@
 								    </div>
 								    <div class="large-6 columns">
 								      	<label>Correo Electronico
-								        	<input type="text" placeholder="Nombre del Direccion" name="sector" id="sector">
+								        	<input type="text" placeholder="Nombre del Direccion" name="correo" id="correo">
 								      	</label>
 								    </div>
 								</div>
 								<div class="row">
 									<div class="large-6 columns">
 								      	<label>Contraseña
-								        	<input type="password" placeholder="Contraseña" name="pass" id="pass">
+								        	<input type="password" placeholder="Contraseña" name="contrasena" id="contrasena">
 								      	</label>
 								    </div>
 								    <div class="large-6 columns">
@@ -130,12 +139,12 @@
 								<div class="row">
 									<div class="large-6 columns">
 								      	<label>Telefono
-								        	<input type="text" placeholder="Nombre del Anunciante" name="anunciante" id="anunciante">
+								        	<input type="text" placeholder="Nombre del Anunciante" name="telefono" id="telefono">
 								      	</label>
 								    </div>
 								    <div class="large-6 columns">
 								      	<label>Rol
-								        	<select name="anunciante" id="anunciante">
+								        	<select name="rol" id="rol">
 								        		<option value="">-- Seleccione una opción --</option>
 								        	</select>
 								      	</label>
@@ -161,3 +170,9 @@
 	<script src="../js/tabs.js"></script>
 	<script src="../js/app/usuario.js"></script>
 </html>
+<?php
+	}else{
+		header( "location: ../index.php");
+	}
+?>
+
