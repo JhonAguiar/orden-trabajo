@@ -22,6 +22,19 @@
 			return $response;
 		}
 
+		public function completeUser($id){
+
+			$sql = "SELECT * FROM usuario where identificacion = ".$id."";
+
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+			return $response;
+
+		}
+
 	}
 
 ?>
