@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	if($_SESSION['valido']){
+		include "../model/General.php";
+?>
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -106,6 +111,13 @@
 								      	<label>Ciudad
 								        	<select name="ciudad" id="ciudad">
 								        		<option value="">-- Seleccione una opción --</option>
+								        		<?php 
+								        			$gen = new General();
+													$ciu = $gen->ciudad();
+													for ($i=0; $i < count($ciu) ; $i++) { 
+														echo '<option value="'.$ciu[$i]["id_ciudad"].'">'.$ciu[$i]["ciudad"].' - '.$ciu[$i]["departamento"].'</option>';
+													}
+								        		?>
 								        	</select>
 								      	</label>
 								    </div>
@@ -161,3 +173,8 @@
 	<script src="../js/tabs.js"></script>
 	<script src="../js/app/usuario.js"></script>
 </html>
+<?php
+	}else{
+		header('location: ../index.php');
+	}
+?>

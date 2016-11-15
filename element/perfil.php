@@ -20,9 +20,9 @@ if($_SESSION['valido']){
 		<link rel="stylesheet" href="../css/jquery-ui.css">
 		<script src="../js/vendor/jquery-ui.js"></script>
 		<script>
-		  $( function() {
-		    $( "#fec_nac" ).datepicker();
-		  } );
+		  	$( function() {
+		    	$( "#fec_nac" ).datepicker();
+		  	} );
 		</script>
 
 	</head>

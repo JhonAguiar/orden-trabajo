@@ -17,7 +17,7 @@
 								<label for=""><i>Usuario</i>
 									<input type="text" name="usuario" placeholder="Usuario">
 								</label>
-							</div>
+						s	</div>
 							<div class="medium-12">
 								<label for=""><i>Contraseña</i>
 									<input type="password" name="clave" placeholder="Contraseña">
