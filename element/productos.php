@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	if($_SESSION["valido"]){
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -60,8 +65,7 @@
 			</div>
 			<div class="content-two">
 				<div class="container">
-					<form id="" name="">
-						
+					<form id="form-producto" name="form-producto">
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Codigo
@@ -86,8 +90,6 @@
 				</div>
 			</div>
 		</div>
-		
-
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
 	<script src="../js/vendor/jquery.js"></script>
@@ -96,3 +98,9 @@
 	<script src="../js/tabs.js"></script>
 	<script src="../js/app/productos.js"></script>
 </html>
+<?php
+	}else{
+		header('location: ../index.php');
+	}
+
+?>

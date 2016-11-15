@@ -1,8 +1,9 @@
 <?php
-session_start();
 
-if($_SESSION['valido']){
-	
+	session_start();
+	if($_SESSION['valido']){
+		include "../model/General.php";
+
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -115,6 +116,13 @@ if($_SESSION['valido']){
 								      	<label>Ciudad
 								        	<select name="ciudad" id="ciudad">
 								        		<option value="">-- Seleccione una opción --</option>
+								        		<?php 
+								        			$gen = new General();
+													$ciu = $gen->ciudad();
+													for ($i=0; $i < count($ciu) ; $i++) { 
+														echo '<option value="'.$ciu[$i]["id_ciudad"].'">'.$ciu[$i]["ciudad"].' - '.$ciu[$i]["departamento"].'</option>';
+													}
+								        		?>
 								        	</select>
 								      	</label>
 								    </div>
@@ -172,7 +180,6 @@ if($_SESSION['valido']){
 </html>
 <?php
 	}else{
-		header( "location: ../index.php");
+		header('location: ../index.php');
 	}
 ?>
-

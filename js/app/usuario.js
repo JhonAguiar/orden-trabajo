@@ -15,6 +15,7 @@ var Usuario = ( function(){
 		
 		this.listarU();
 
+		//Guardar o Editar el formulario
 		$( "#form-user" ).on( "submit" , function(e){
 			e.preventDefault();
 			scope.envioDatos();
@@ -24,6 +25,7 @@ var Usuario = ( function(){
 			e.preventDefault();
 			scope.completarRegistro( this );
 		} )
+
 	}
 
 	//Completar Registro
@@ -61,7 +63,7 @@ var Usuario = ( function(){
 				if (data.length > 0) {
 					data = $.parseJSON(data);
 					$.each(data , function( i , v ){
-						$( "<tr>" , { "id" : v.id_usuario } ).append(
+						$( "<tr>" , { "id" : v.identificacion } ).append(
 							$( "<td>" , { "text" : v.identificacion } ),
 							$( "<td>" , { "text" : v.nombre } ),
 							$( "<td>" , { "text" : v.telefono } ),
@@ -97,6 +99,22 @@ var Usuario = ( function(){
 		})
 	};
 
+	Usuario.prototype.editaRegistro = function( element ){
+		$( "#taber-two" ).click();
+		var element = $(element).parent().parent();
+		var id = $(element).attr("id");
+		alert(id);
+		$.ajax({
+			data: "a=completarUsuarios",
+			method: "POST",
+			url: "../controller/UserController.php",
+			success: function(){
+
+			},error: function(){
+
+			}
+		})
+	}
 
 	return Usuario;
 }() );
