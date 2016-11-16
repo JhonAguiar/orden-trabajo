@@ -74,9 +74,7 @@
 						    </div>
 						    <div class="large-6 columns">
 						      	<label>Producto
-						        	<select name="producto" id="producto">
-										<option value="">-- Seleccione una opción --</option>
-						        	</select>
+						        	<input type="text" id="producto" name="producto">
 						      	</label>
 						    </div>
 						</div>

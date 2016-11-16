@@ -11,9 +11,6 @@ var Producto = ( function(){
 		//Completar tabla de productos
 		scope.listarProcuctos();
 
-		//Completar select
-		scope.completarSelect();
-
 		$( document ).on( "click" , ".editar-registro" ,  function(e){
 			e.preventDefault();
 			scope.editarProducto( this );
@@ -50,32 +47,17 @@ var Producto = ( function(){
 		})
 	}
 
-	Producto.prototype.completarSelect = function(){
-		$.ajax({
-			data: "a=listarProductos",
-			method: "POST",
-			url: "../controller/GeneralController.php",
-			success: function( response ){
-				if(response.length > 0){
-					data = $.parseJSON(response);
-					$.each(data , function( i , v){
-						$("#producto").append('<option value='+v.id_producto+'>'+v.producto+'</option>')
-					})
-				}else{
-					console.log("Ha ocurrido un problema");
-				}
-			},error: function(){
-
-			}
-		})
-	}
 
 	Producto.prototype.editarProducto = function( element ){
 		$( "#taber-two" ).click();
 		var element = $(element).parent().parent();
 		var id = element.attr("id");
+		var producto = element[0].childNodes[1];
+		var producto = $(producto).text();
+
 		$( "#cod_producto" ).val(id);
-		$( "#producto" ).val(id)
+		$( "#producto" ).val(producto)
+		console.log();
 	}	
 
 	return Producto;

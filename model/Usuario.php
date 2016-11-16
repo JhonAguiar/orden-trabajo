@@ -22,18 +22,18 @@
 			return $response;
 		}
 
-
+		
 		public function completUser($id){
 
-			$sql = "SELECT * FROM usuario WHERE id_usuario = ".$id."";
-
+			$sql = "SELECT * FROM usuario WHERE id_usuario = '".$id."'";
+            
 			$result = $this->conexion->query($sql);
 
 			while($row = $result->fetch_assoc()){
 				$response[] = $row;
 			}
 
-			return $response[0];
+			return $result;
 		}	
 	}
 
