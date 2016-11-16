@@ -1,3 +1,9 @@
+<?php
+    session_start();
+
+    if($_SESSION['valido']){
+        require_once "../model/Cliente.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -72,6 +78,11 @@
                             <label>Nombre Cliente
                                 <select name="nombre_cliente" id="nombre_cliente">
                                     <option value="">-- Seleccione una opción --</option>
+                                    <?php
+                                        $cli = new Cliente();
+                                        $clien = $cli->cliente();
+                                        
+                                    ?>
                                 </select>
                             </label>
                         </div>
@@ -363,3 +374,9 @@
     <script src="../js/vertical-tab.js"></script>
     <script src="../js/vista-previa.js"></script>
 </html>
+<?php
+    }else{
+        header('location: ../index.php');
+    }
+
+?>

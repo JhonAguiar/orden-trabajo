@@ -2,10 +2,10 @@
 session_start();
 
 if($_SESSION['valido']){
-	
+	require_once "../model/Cliente.php";
 ?>
 <!DOCTYPE html>
-	<html lang="en">
+	<html lang="es">
 	<head>
 		<meta charset="UTF-8">
 		<title>Clientes - OT</title>
@@ -206,7 +206,7 @@ if($_SESSION['valido']){
 </html>
 
 <?php
-}else{
-	header('location: ../index.php');
-}
+	}else{
+		header('location: ../index.php');
+	}
 ?>

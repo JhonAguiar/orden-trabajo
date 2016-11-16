@@ -66,7 +66,7 @@
 			//FALTA LA FOTO
 			$foto = "";
 
-			if($validar == 1){
+			if($validar === 1){
 				$sql = "INSERT INTO usuario (
 						id_usuario , 
 						identificacion,
@@ -96,27 +96,27 @@
 					)";
 			}else{
 				$sql = "UPDATE 
-							usuario 
-						SET 
-							id_usuario = '".$id."' , 
-							identificacion ='".$identificacion."' ,
-							usuario = '".$usuario."',
-							nombre = '".$nombre."',
-							contrasena = '".$contrasena."',
-							fec_nac = '".$fecnac."',
-							direccion = '".$direccion."',
-							foto = '".$foto."',
-							ciudad = '".$ciudad."',
-							correo = '".$correo."',
-							telefono = '".$telefono."',
-							rol = '".$rol."'
-						WHERE 
-							id_usuario = '".$id."'";
+						usuario 
+					SET 
+						id_usuario = '".$id."' , 
+						identificacion ='".$identificacion."' ,
+						usuario = '".$usuario."',
+						nombre = '".$nombre."',
+						contrasena = '".$contrasena."',
+						fec_nac = '".$fecnac."',
+						direccion = '".$direccion."',
+						foto = '".$foto."',
+						ciudad = '".$ciudad."',
+						correo = '".$correo."',
+						telefono = '".$telefono."',
+						rol = '".$rol."'
+					WHERE 
+						id_usuario = '".$id."'";
 			}
 
 			$result = $this->conexion->query($sql);
 			
-			return $result;
+			return $identificacion;
 		}
 
 	}

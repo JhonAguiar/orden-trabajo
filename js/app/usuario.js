@@ -71,7 +71,7 @@ var Usuario = ( function(){
 				$( "#correo" ).val(data.correo);
 				$( "#contrasena" ).val(data.contrasena);
 				$( "#telefono" ).val(data.telefono);
-				$( "#rol" ).val(data.id_rol);
+				$( "#rol" ).val(data.rol);
 				validar = 0;
 			},error: function(){
 

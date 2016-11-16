@@ -24,6 +24,9 @@
 			}
 		break;
 		case 'eliminarUsuario':
+			$usr = new Usuario();
+			$user = $usr->eliminarUsuario();
+			
 		break;
 
 		default:
