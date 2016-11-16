@@ -114,7 +114,7 @@ var Usuario = ( function(){
 	//Envio de datos
 	Usuario.prototype.envioDatos = function(element) {
 		$.ajax({
-			data: "a=envioDatos&"+$(element).serialize(),
+			data: "a=envioDatos&valid="+validar+"&"+$(element).serialize(),
 			url: "../controller/UserController.php",
 			method: "POST",
 			success: function( data ){

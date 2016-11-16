@@ -17,7 +17,12 @@
 		case 'envioDatos':
 			$usr = new Usuario();
 			$user = $usr->envioDatos( $_POST );
-			echo json_encode( $user );
+			if ( $user ) {
+				echo json_encode( array( 'success'=>true ) );
+			} else {
+				echo json_encode( array( 'success'=>false ) );
+			}
+		break;
 		case 'eliminarUsuario':
 		break;
 
