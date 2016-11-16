@@ -21,11 +21,34 @@ var Usuario = ( function(){
 			scope.envioDatos();
 		} )
 
+		//Completar registro
 		$( document ).on( "click" ,  ".editar-registro" , function(e){
 			e.preventDefault();
 			scope.completarRegistro( this );
 		} )
 
+		//Eliminar un registro
+		$( document ).on( "click" , ".eliminar-registro" , function(e){
+			e.preventDefault();
+			scope.eliminarRegistro( this );
+		} )
+	}
+
+	Usuario.prototype.eliminarRegistro = function( element ){
+		if(confirm("Desea eliminar el registro")){
+			$.ajax({
+				data: "",
+				url: "",
+				method: "POST",
+				success: function(){
+
+				},error: function(){
+
+				}
+			})
+		}else{
+			
+		}
 	}
 
 	//Completar Registro
@@ -43,6 +66,7 @@ var Usuario = ( function(){
 				$( "#usuario" ).val(data.usuario);
 				$( "#fec_nac" ).val(data.fec_nac);
 				$( "#direccion" ).val(data.direccion);
+				$( "#ciudad").val(data.ciudad);
 				$( "#correo" ).val(data.correo);
 				$( "#contrasena" ).val(data.contrasena);
 				$( "#telefono" ).val(data.telefono);
@@ -98,23 +122,6 @@ var Usuario = ( function(){
 			}
 		})
 	};
-
-	Usuario.prototype.editaRegistro = function( element ){
-		$( "#taber-two" ).click();
-		var element = $(element).parent().parent();
-		var id = $(element).attr("id");
-		alert(id);
-		$.ajax({
-			data: "a=completarUsuarios",
-			method: "POST",
-			url: "../controller/UserController.php",
-			success: function(){
-
-			},error: function(){
-
-			}
-		})
-	}
 
 	return Usuario;
 }() );

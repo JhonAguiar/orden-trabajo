@@ -17,7 +17,7 @@ switch ($_POST["a"]) {
 		} else {
 			echo json_encode( array( 'success'=>false ) );
 		}
-	break;	
+	break;
 	case 'eliminarCiudad':
 		$gen = new General();
 		$elim = $gen->elimCiudad($_POST["codigo"]);
@@ -32,6 +32,24 @@ switch ($_POST["a"]) {
 		$list = $gen->listarProd();
 
 		echo json_encode($list);
+	break;
+	case 'elimProducto':
+		$gen = new General();
+		$elim = $gen->elimProducto( $_POST["id"] );
+		if ( $elim ){
+			echo json_encode( array( 'success'=>true ) );
+		}else{
+			echo json_encode( array( 'success'=>false ) );
+		}
+	break;
+	case 'enviarProducto':
+		$gen = new General();
+		$creaci = $gen->enviarProducto( $_POST );
+		if ( $creaci ) {
+			echo json_encode( array( 'success'=>true ) );
+		} else {
+			echo json_encode( array( 'success'=>false ) );
+		}
 	break;
 }
 

@@ -86,6 +86,48 @@
 			}
 			return $response;
 		}
+
+		/**
+		 * Eliminar producto
+		 */
+		public function elimProducto($id){
+			$sql = "DELETE FROM producto WHERE id_producto = '".$id."'";
+
+			$result = $this->conexion->query($sql);
+			
+			return $id;
+		}
+
+		/**
+		 * Enviar producto
+		 */
+		public function enviarProducto($data){
+			$array =  array($data);
+			$cod_producto = $array[0]["cod_producto"];
+			$producto = $array[0]["producto"];
+			$validar = $array[0]["valid"];
+			if($validar == 1){
+				$sql = "INSERT INTO 
+					producto (
+						id_producto , 
+						producto
+					) values (
+						'".$cod_producto."' , 
+						'".$producto."')";
+			}else{
+				$sql = "UPDATE 
+							producto 
+						SET 
+							producto ='".$producto."' 
+						WHERE 
+							id_producto = '".$cod_producto."'";
+			}
+
+			$result = $this->conexion->query($sql);
+			
+			return $result;
+		}
+
 	}
 
 ?>

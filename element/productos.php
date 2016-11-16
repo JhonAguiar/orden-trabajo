@@ -69,7 +69,7 @@
 						<div class="row">
 							<div class="large-6 columns">
 						      	<label>Codigo
-						        	<input type="text" placeholder="Codigo del producto" name="cod_producto" id="cod_producto">
+						        	<input type="text" placeholder="Codigo del producto" name="cod_producto" id="cod_producto" readonly>
 						      	</label>
 						    </div>
 						    <div class="large-6 columns">
@@ -81,6 +81,7 @@
 						<hr>
 						<div class="row">
 							<div class="large-12 columns text-right">
+								<button class="button warning" type="reset"> <i class="fa fa-send"></i> Limpiar</button>
 								<button class="button success"> <i class="fa fa-send"></i> Enviar</button>
 							</div>
 						</div>

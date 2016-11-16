@@ -17,7 +17,7 @@ scope.listarCiudades = function(){
 		success: function(data) {
 			if (data.length > 0) {
 				listado = $.parseJSON(data);
-                                show();
+             	show();
 			}else{
 				$( "<tr>" ).append(
 					$( "<td>" , { "colspan" : "4" , "text" : "No hay ciudades disponibles" } )
@@ -140,7 +140,6 @@ $(".pagination #after").on("click", function(){
 
 
 $(document).ready(function(){
-
 
 	scope.listarCiudades();
 	// Eventos envio de datos

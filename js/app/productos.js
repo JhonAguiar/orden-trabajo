@@ -1,3 +1,4 @@
+var validar = 1;
 var Producto = ( function(){
 
 	function Producto (){
@@ -9,16 +10,46 @@ var Producto = ( function(){
 		var scope = this;
 
 		//Completar tabla de productos
-		scope.listarProcuctos();
+		scope.listarProductos();
 
+		//Editar producto
 		$( document ).on( "click" , ".editar-registro" ,  function(e){
 			e.preventDefault();
 			scope.editarProducto( this );
 		} )
 
+		//Eliminar Producto
+		$( document ).on( "click" , ".eliminar-registro" , function(e){
+			e.preventDefault();
+			scope.eliminarProducto( this );
+		} )
+
+		$( "#form-producto" ).on("submit" , function(e){
+			e.preventDefault();
+			scope.enviarProducto( this );
+		})
 	};
 
-	Producto.prototype.listarProcuctos = function(){
+	/**
+	 * ENVIAR PRODUCTO
+	 */
+	Producto.prototype.enviarProducto = function(element){
+		$.ajax({
+			url: "../controller/GeneralController.php",
+			data: "a=enviarProducto&valid="+validar+"&"+$(element).serialize(),
+			method: "POST",
+			success: function( data ){
+				alert("Guardado Correctamente");
+			},error: function(){
+				alert("Ha ocurrido un problema");
+			}
+		})
+	}
+
+	/**
+	 * LISTAR PRODUCTOS
+	 */
+	Producto.prototype.listarProductos = function(){
 		$.ajax({
 			url: "../controller/GeneralController.php",
 			data: "a=listarProductos",
@@ -47,7 +78,9 @@ var Producto = ( function(){
 		})
 	}
 
-
+	/**
+	 * EDITAR PRODUCTO
+	 */
 	Producto.prototype.editarProducto = function( element ){
 		$( "#taber-two" ).click();
 		var element = $(element).parent().parent();
@@ -57,9 +90,31 @@ var Producto = ( function(){
 
 		$( "#cod_producto" ).val(id);
 		$( "#producto" ).val(producto)
-		console.log();
+		validar = 0;
 	}	
 
+	/**
+	 * ELIMINAR EL PRODUCTO
+	 */
+	Producto.prototype.eliminarProducto = function( element ){
+		if(confirm("Desea eliminar el producto")){
+			var element = $(element).parent().parent();
+			var id = element.attr("id");
+			$.ajax({
+				data: "a=elimProducto&id="+id,
+				url: "../controller/GeneralController.php",
+				method: "POST",
+				success: function( data ){
+					alert("Registro Borrado");
+				},error: function(){
+
+				}
+			})
+			$(element).hide();
+		}else{
+
+		}	
+	}
 	return Producto;
 }())
 

@@ -25,7 +25,7 @@
 		
 		public function completUser($id){
 
-			$sql = "SELECT * FROM usuario WHERE id_usuario = '".$id."'";
+			$sql = "SELECT * FROM usuario WHERE identificacion = '".$id."'";
             
 			$result = $this->conexion->query($sql);
 
@@ -33,7 +33,7 @@
 				$response[] = $row;
 			}
 
-			return $result;
+			return $response[0];
 		}	
 	}
 
