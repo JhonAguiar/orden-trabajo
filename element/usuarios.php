@@ -15,6 +15,14 @@
 		<link rel="stylesheet" href="../css/index.css">
 		<link rel="stylesheet" href="../css/font-awesome-4.6.3/css/font-awesome.css">
 		<link rel="stylesheet" href="../css/tabs.css">
+		<script src="../js/vendor/jquery.js"></script>
+		<link rel="stylesheet" href="../css/jquery-ui.css">
+		<script src="../js/vendor/jquery-ui.js"></script>
+		<script>
+		  	$( function() {
+		    	$( "#fec_nac" ).datepicker();
+		  	} );
+		</script>
 	</head>
 	<body>
 		<menu class="men-princi">
@@ -168,6 +176,7 @@
 								<hr>
 								<div class="row">
 									<div class="large-12 columns text-right">
+										<button class="button warning" type="reset"> <i class="fa fa-send"></i> Limpiar</button>
 										<button class="button success"> <i class="fa fa-send"></i> Enviar</button>
 									</div>
 								</div>
@@ -179,7 +188,6 @@
 		</div>
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
-	<script src="../js/vendor/jquery.js"></script>
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>

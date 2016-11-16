@@ -18,7 +18,7 @@ var Usuario = ( function(){
 		//Guardar o Editar el formulario
 		$( "#form-user" ).on( "submit" , function(e){
 			e.preventDefault();
-			scope.envioDatos();
+			scope.envioDatos( this );
 		} )
 
 		//Completar registro
@@ -72,6 +72,7 @@ var Usuario = ( function(){
 				$( "#contrasena" ).val(data.contrasena);
 				$( "#telefono" ).val(data.telefono);
 				$( "#rol" ).val(data.id_rol);
+				validar = 0;
 			},error: function(){
 
 			}
@@ -113,9 +114,9 @@ var Usuario = ( function(){
 	//Envio de datos
 	Usuario.prototype.envioDatos = function(element) {
 		$.ajax({
-			data: "",
-			url: "",
-			method: "",
+			data: "a=envioDatos&"+$(element).serialize(),
+			url: "../controller/UserController.php",
+			method: "POST",
 			success: function( data ){
 
 			},error: function(){

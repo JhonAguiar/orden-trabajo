@@ -10,6 +10,19 @@
 			$this->conexion = Conectar::conexion();
 		}
 
+		public function rol(){
+			$response = array();
+			
+			$sql = "SELECT * FROM rol";
+
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+			return $response;
+		}
+
 		public function listUser(){
 
 			$sql = "SELECT * FROM usuario";
@@ -22,7 +35,6 @@
 			return $response;
 		}
 
-		
 		public function completUser($id){
 
 			$sql = "SELECT * FROM usuario WHERE identificacion = '".$id."'";
@@ -36,17 +48,9 @@
 			return $response[0];
 		}
 
-		public function rol(){
-			$response = array();
+		public function envioDatos($datos){
 			
-			$sql = "SELECT * FROM rol";
-
-			$result = $this->conexion->query($sql);
-			
-			while($row = $result->fetch_assoc()){
-				$response[] = $row;
-			}
-			return $response;
+			return $datos;
 		}
 
 	}

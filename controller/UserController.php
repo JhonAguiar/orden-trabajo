@@ -14,7 +14,10 @@
 			$user = $usr->completUser( $_POST["id"] );
 			echo json_encode( $user );
 		break;
-
+		case 'envioDatos':
+			$usr = new Usuario();
+			$user = $usr->envioDatos( $_POST );
+			echo json_encode( $user );
 		case 'eliminarUsuario':
 		break;
 
