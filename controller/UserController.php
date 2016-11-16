@@ -15,6 +15,9 @@
 			echo json_encode( $user );
 		break;
 
+		case 'eliminarUsuario':
+		break;
+
 		default:
 			echo json_encode("fail");
 		break;

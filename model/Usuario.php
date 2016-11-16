@@ -34,7 +34,21 @@
 			}
 
 			return $response[0];
-		}	
+		}
+
+		public function rol(){
+			$response = array();
+			
+			$sql = "SELECT * FROM rol";
+
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+			return $response;
+		}
+
 	}
 
 ?>

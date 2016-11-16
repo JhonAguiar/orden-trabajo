@@ -3,7 +3,7 @@
 	session_start();
 	if($_SESSION['valido']){
 		include "../model/General.php";
-
+		include "../model/Usuario.php";
 ?>
 <!DOCTYPE html>
 	<html lang="en">
@@ -154,6 +154,13 @@
 								      	<label>Rol
 								        	<select name="rol" id="rol">
 								        		<option value="">-- Seleccione una opción --</option>
+								        		<?php 
+								        			$usu = new Usuario();
+													$rol = $usu->rol();
+													for ($i=0; $i < count($rol) ; $i++) { 
+														echo '<option value="'.$rol[$i]["id_rol"].'">'.$rol[$i]["rol"].'</option>';
+													}
+								        		?>
 								        	</select>
 								      	</label>
 								    </div>

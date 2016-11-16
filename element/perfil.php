@@ -4,6 +4,8 @@ session_start();
 if($_SESSION['valido']){
 	include "../model/General.php";
 	$ciu_select = $_SESSION["ciudad"];
+	include "../model/Usuario.php";
+	$rol_select = $_SESSION["rol"];
 ?>
 
 <!DOCTYPE html>
@@ -125,6 +127,17 @@ if($_SESSION['valido']){
 						      	<label>Rol
 						        	<select name="rol" id="rol">
 						        		<option value="">-- Seleccione una opción --</option>
+						        		<?php 
+						        			$usu = new Usuario();
+											$rol = $usu->rol();
+											for ($i=0; $i < count($rol) ; $i++) { 
+												if($i+1 == $rol_select){
+													echo '<option selected value="'.$rol[$i]["id_rol"].'">'.$rol[$i]["rol"].'</option>';
+												}else{
+													echo '<option value="'.$rol[$i]["id_rol"].'">'.$rol[$i]["rol"].'</option>';
+												}
+											}
+						        		 ?>
 						        	</select>
 						      	</label>
 						    </div>
