@@ -36,6 +36,7 @@ var Usuario = ( function(){
 
 	Usuario.prototype.eliminarRegistro = function( element ){
 		if(confirm("Desea eliminar el registro")){
+			var elemento = $(element).parent().parent();
 			var iden = $(element).parent().parent().attr("id");
 			$.ajax({
 				data: "a=eliminarUsuario&id="+iden,
@@ -47,6 +48,7 @@ var Usuario = ( function(){
 
 				}
 			})
+			$(elemento).fadeOut();
 		}else{
 			
 		}
@@ -63,6 +65,7 @@ var Usuario = ( function(){
 			success: function( data ){
 				data = $.parseJSON(data);
 				$( "#nombre" ).val(data.nombre);
+				$( "#id_usuario" ).val(data.id_usuario);
 				$( "#identificacion" ).val(data.identificacion);
 				$( "#usuario" ).val(data.usuario);
 				$( "#fec_nac" ).val(data.fec_nac);

@@ -81,7 +81,9 @@
                                     <?php
                                         $cli = new Cliente();
                                         $clien = $cli->cliente();
-                                        
+                                        for ($i=0; $i < count($clien) ; $i++) { 
+                                            echo '<option value="'.$clien[$i]["id_cliente"].'">'.$clien[$i]["cliente"].'</option>';
+                                        }
                                     ?>
                                 </select>
                             </label>

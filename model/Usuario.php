@@ -66,57 +66,40 @@
 			//FALTA LA FOTO
 			$foto = "";
 
-			if($validar === 1){
-				$sql = "INSERT INTO usuario (
-						id_usuario , 
-						identificacion,
-						usuario,
-						nombre,
-						contrasena,
-						fec_nac,
-						direccion,
-						foto,
-						ciudad,
-						correo,
-						telefono,
-						rol
-					) values (
-						'".$id."', 
-						'".$identificacion."',
-						'".$usuario."',
-						'".$nombre."',
-						'".$contrasena."',
-						'".$fecnac."',
-						'".$direccion."',
-						'".$foto."',
-						'".$ciudad."',
-						'".$correo."',
-						'".$telefono."',
-						'".$rol."'
-					)";
+			if($validar == 1){
+				$sql = "INSERT INTO usuario ( identificacion, usuario, nombre, contrasena, fec_nac, direccion, foto, ciudad, correo, telefono, rol) values ( '$identificacion','$usuario','$nombre','$contrasena','$fecnac','$direccion','$foto','$ciudad','$correo','$telefono','$rol')";
 			}else{
 				$sql = "UPDATE 
 						usuario 
 					SET 
-						id_usuario = '".$id."' , 
-						identificacion ='".$identificacion."' ,
-						usuario = '".$usuario."',
-						nombre = '".$nombre."',
-						contrasena = '".$contrasena."',
-						fec_nac = '".$fecnac."',
-						direccion = '".$direccion."',
-						foto = '".$foto."',
-						ciudad = '".$ciudad."',
-						correo = '".$correo."',
-						telefono = '".$telefono."',
-						rol = '".$rol."'
+						id_usuario = '$id' , 
+						identificacion = '$identificacion' ,
+						usuario = '$usuario',
+						nombre = '$nombre',
+						contrasena = '$contrasena',
+						fec_nac = '$fecnac',
+						direccion = '$direccion',
+						foto = '$foto',
+						ciudad = '$ciudad',
+						correo = '$correo',
+						telefono = '$telefono',
+						rol = '$rol'
 					WHERE 
-						id_usuario = '".$id."'";
+						id_usuario = '$id'";
 			}
 
 			$result = $this->conexion->query($sql);
-			
-			return $identificacion;
+
+			return $result;
+		}
+
+		public function eliminarUsuario( $id ){
+
+			$sql = "DELETE FROM usuario WHERE identificacion = '$id'";
+
+			$result = $this->conexion->query($sql);
+
+			return $result;
 		}
 
 	}

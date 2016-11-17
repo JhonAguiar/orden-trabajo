@@ -122,7 +122,7 @@
 								<div class="row">
 									<div class="large-6 columns">
 								      	<label>Ciudad
-								        	<select name="ciudad" id="ciudad">
+								        	<select name="ciudad" id="ciudad" required>
 								        		<option value="">-- Seleccione una opción --</option>
 								        		<?php 
 								        			$gen = new General();
