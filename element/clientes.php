@@ -181,12 +181,8 @@ if($_SESSION['valido']){
 						    </div>
 						    <div class="large-4 columns">Tipo Cliente
 						    	<label>
-							    	
 							        <select id="listaClientes">
 							          	<option label="Chrome" value="Chrome">
-							          	<option label="Firefox" value="Firefox">
-							          	<option label="Internet Explorer" value="Internet Explorer">
-							          	<option label="Safari" value="Safari">          
 							        </select> 
 								</label>
 						    </div>
