@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 	if($_SESSION['valido']){
 		include "../model/General.php";
@@ -83,10 +82,12 @@
 					 	<input type="hidden" id="id_usuario" name="id_usuario">
 						<div class="row">
 							<div class="large-3 columns" style="text-align: center">
-								<img src="../img/no-photo.png" alt="">
+								<img src="../img/no-photo.png" alt="" id="foto-muestra">
 								<br><br>
 								<div>
-									<button class="button info"> SUBIR FOTO</button>
+									<button class="button info" id="subir-foto"> SUBIR FOTO</button><br>
+									<b><span id="nom-foto"></span></b>
+									<input type="file" id="foto" name="foto" style="display: none">
 								</div>
 							</div>
 							<div class="large-9 columns">

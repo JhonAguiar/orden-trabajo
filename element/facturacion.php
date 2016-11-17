@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if($_SESSION['valido']){
+		include "../model/Cliente.php";
+		include "../model/Facturacion.php";
+?>
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -78,6 +84,13 @@
 					      	<label>Nombre Cliente
 					        	<select name="nombre_cliente" id="nombre_cliente">
 					        		<option value="">-- Seleccione una opción --</option>
+					        		<?php
+                                        $cli = new Cliente();
+                                        $clien = $cli->cliente();
+                                        for ($i=0; $i < count($clien) ; $i++) { 
+                                            echo '<option value="'.$clien[$i]["id_cliente"].'">'.$clien[$i]["cliente"].'</option>';
+                                        }
+                                    ?>   			
 					        	</select>
 					      	</label>
 					    </div>
@@ -123,6 +136,13 @@
 					      	<label>Tipo de Moneda
 					        	<select name="tipo_moneda" id="tipo_moneda">
 					        		<option value="">-- Seleccione una opción --</option>
+					        		<?php
+                                        $mon = new Facturacion();
+                                        $mone = $mon->moneda();
+                                        for ($i=0; $i < count($mone) ; $i++) { 
+                                            echo '<option value="'.$mone[$i]["id_tipo_moneda"].'">'.$mone[$i]["descripcion"].'</option>';
+                                        }
+                                    ?>  
 					        	</select>
 					      	</label>
 					    </div>
@@ -197,3 +217,8 @@
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
 </html>
+<?php
+	}else{
+		header('location: ../index.php');
+	}
+?>

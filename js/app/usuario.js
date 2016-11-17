@@ -32,6 +32,21 @@ var Usuario = ( function(){
 			e.preventDefault();
 			scope.eliminarRegistro( this );
 		} )
+
+		//Subir Foto
+		$( "#subir-foto" ).on( "click" , function(e){
+			e.preventDefault();
+			$("#foto").click();
+		} )
+
+		$( "#foto" ).on( "change" , function(e){
+			e.preventDefault();
+			var cad = this.value;
+			var cad = cad.split("").reverse().join("");
+			var cad = cad.split(/\\/);
+			var cad = cad[0].split("").reverse().join("");
+			$( "#nom-foto" ).text(cad);
+		} )
 	}
 
 	Usuario.prototype.eliminarRegistro = function( element ){
