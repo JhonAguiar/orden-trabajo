@@ -3,6 +3,7 @@ session_start();
 
 if($_SESSION['valido']){
 	require_once "../model/Cliente.php";
+	require_once "../model/General.php";
 ?>
 <!DOCTYPE html>
 	<html lang="es">
@@ -128,10 +129,16 @@ if($_SESSION['valido']){
 							<div class="large-6 columns">
 						      	<label>Ciudad
 						        	<label>
-							    	<input type="text" id="ciudad" name="ciudad" list="listadoCiudad">
-							        <datalist id="listadoCiudad">
- 
-							        </datalist> 
+							    	<select id="ciudad" name="ciudad" >
+							    		<option value="">-- Seleccione una opción --</option>
+										<?php 
+						        			$gen = new General();
+											$ciu = $gen->ciudad();
+											for ($i=0; $i < count($ciu) ; $i++) { 
+												echo '<option value="'.$ciu[$i]["codigo"].'">'.$ciu[$i]["ciudad"].' - '.$ciu[$i]["departamento"].'</option>';
+											}
+						        		?>
+							        </select> 
 								</label>
 						      	</label>
 						    </div>
@@ -174,13 +181,13 @@ if($_SESSION['valido']){
 						    </div>
 						    <div class="large-4 columns">Tipo Cliente
 						    	<label>
-							    	<input type="text" id="tipo-cliente" name="tipo-cliente" list="listaClientes" required>
-							        <datalist id="listaClientes">
+							    	
+							        <select id="listaClientes">
 							          	<option label="Chrome" value="Chrome">
 							          	<option label="Firefox" value="Firefox">
 							          	<option label="Internet Explorer" value="Internet Explorer">
 							          	<option label="Safari" value="Safari">          
-							        </datalist> 
+							        </select> 
 								</label>
 						    </div>
 						</div>

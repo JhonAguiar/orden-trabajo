@@ -112,6 +112,8 @@ var Cliente = ( function(){
 					$("#direccion").val(data.direccion);
 					$("#consecutivo").val(data.consecutivo);
 					$("#tipo-cliente").val(data.tipo_cliente);
+					$("#ciudad").val(data.ciudad);
+					console.log(data);
 					$("#taber-two").click();
 					validar = 0;
 				}
