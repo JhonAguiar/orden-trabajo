@@ -136,6 +136,7 @@
 
 		public function saveAnunciante( $data = array() ){
 			$valid = $data['valid'];
+			$id_anunciante = $data["id_anunciante"];
 			$anunciante = $data['anunciante'];
 			$cliente = $data['cliente'];
 			$sector = $data['sector'];

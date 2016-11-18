@@ -68,7 +68,7 @@ session_start();
 				<div class="content-two">
 					<div class="container">
 						<form id="form-anunciante" name="form-anunciante">
-							<input type="hidden" id="id_anunciante" value="id_anunciante">
+							<input type="hidden" id="id_anunciante" name="id_anunciante">
 							<div class="row">
 								<div class="large-6 columns">
 							      	<label>Cliente
