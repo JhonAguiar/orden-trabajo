@@ -15,6 +15,15 @@
         <link rel="stylesheet" href="../css/font-awesome-4.6.3/css/font-awesome.css">
         <link rel="stylesheet" href="../css/tabs.css">
         <link rel="stylesheet" href="../css/vertical-tab.css">
+        <script src="../js/vendor/jquery.js"></script>
+        <link rel="stylesheet" href="../css/jquery-ui.css">
+        <script src="../js/vendor/jquery-ui.js"></script>
+        <script>
+            $( function() {
+                $( "#desde" ).datepicker();
+                $( "#hasta" ).datepicker();
+            } );
+        </script>
     </head>
     <body>
         <menu class="men-princi">
@@ -299,12 +308,12 @@
                                     <div class="row">
                                         <div class="large-4 columns">
                                             <label>Desde
-                                                <input type="text" name="desde" id="desde">
+                                                <input type="text" name="desde" id="desde" placeholder="Desde">
                                             </label>
                                         </div>
                                         <div class="large-4 columns">
                                             <label>Hasta
-                                                <input type="text" name="hasta" id="hasta">
+                                                <input type="text" name="hasta" id="hasta" placeholder="Hasta">
                                             </label>
                                         </div>
                                         <div class="large-2 columns">
@@ -369,7 +378,6 @@
         </div>
     </body>
     <?php include "../tpl/menu-principal.php" ?>
-    <script src="../js/vendor/jquery.js"></script>
     <script src="../js/vendor/foundation.min.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/tabs.js"></script>

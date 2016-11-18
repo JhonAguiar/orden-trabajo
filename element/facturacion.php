@@ -14,6 +14,14 @@
 		<link rel="stylesheet" href="../css/index.css">
 		<link rel="stylesheet" href="../css/font-awesome-4.6.3/css/font-awesome.css">
 		<link rel="stylesheet" href="../css/tabs.css">
+		<script src="../js/vendor/jquery.js"></script>
+        <link rel="stylesheet" href="../css/jquery-ui.css">
+        <script src="../js/vendor/jquery-ui.js"></script>
+        <script>
+            $( function() {
+                $( "#fecha_factura" ).datepicker();
+            } );
+        </script>
 	</head>
 	<body>
 		<menu class="men-princi">
@@ -212,7 +220,6 @@
 			
 	</body>
 	<?php include "../tpl/menu-principal.php" ?>
-	<script src="../js/vendor/jquery.js"></script>
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
