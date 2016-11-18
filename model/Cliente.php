@@ -120,6 +120,49 @@
 			return $response[0];
 		}
 
+		public function listAnunciante(){
+			$response = array();
+			
+			$sql = "SELECT an.* , cl.cliente as nomb_cliente FROM anunciante as an INNER JOIN cliente as cl ON an.cliente = cl.id_cliente;";
+
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+			return $response;
+		}
+
+
+		public function saveAnunciante( $data = array() ){
+			$valid = $data['valid'];
+			$anunciante = $data['anunciante'];
+			$cliente = $data['cliente'];
+			$sector = $data['sector'];
+
+			if($valid == 1){
+				$sql = "INSERT INTO anunciante (cliente , nombre , sector) values ( $anunciante' , $cliente , $sector )";
+			}else{
+				$sql = "UPDATE anunciante SET cliente='$cliente' , nombre=$anunciante , sector='$sector' where id_anunciante='$id_anunciante' ;";
+			}
+
+			$result = $this->conexion->query($sql);
+
+			return $result;
+		}
+
+		public function completeAnun( $id ){
+
+			$sql = "SELECT * FROM anunciante where id_anunciante = '$id'"; 
+
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+
+			return $response;
+		}
 
 	}
 ?>

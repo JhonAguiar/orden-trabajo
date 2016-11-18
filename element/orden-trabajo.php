@@ -22,6 +22,7 @@
             $( function() {
                 $( "#desde" ).datepicker();
                 $( "#hasta" ).datepicker();
+                
             } );
         </script>
     </head>

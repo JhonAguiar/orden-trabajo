@@ -2,11 +2,10 @@
 session_start();
 
 	if ($_SESSION['valido']) {
-	    //include "../db/General.php";
-	    $ciu_select = $_SESSION["ciudad"];
+	    require_once "../model/Cliente.php";
 ?>	
 	<!DOCTYPE html>
-	<html lang="en">
+	<html lang="es">
 		<head>
 			<meta charset="UTF-8">
 			<title>Anunciantes - OT</title>
@@ -54,31 +53,34 @@ session_start();
 						<table>
 							<thead>
 								<tr>
-									<th>Nit</th>
+									<th>Id</th>
+									<th>Anunciante</th>
 									<th>Cliente</th>
-									<th>Telefono</th>
 									<th>Acciones</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+							<tbody id="listAnun">
+								
 							</tbody>
 						</table>
 					</div>
 				</div>
 				<div class="content-two">
 					<div class="container">
-						<form id="" name="">
+						<form id="form-anunciante" name="form-anunciante">
+							<input type="hidden" id="id_anunciante" value="id_anunciante">
 							<div class="row">
 								<div class="large-6 columns">
 							      	<label>Cliente
 							        	<select name="cliente" id="cliente">
-							        		<option>-- Seleccione una opción --</option>
+							        		<option value="" disabled selected>-- Seleccione una opción --</option>
+							        		<?php 
+							        			$gen = new Cliente();
+												$ciu = $gen->cliente();
+												for ($i=0; $i < count($ciu) ; $i++) { 
+													echo '<option value="'.$ciu[$i]["id_cliente"].'"> '.$ciu[$i]["cliente"].'</option>';
+												}
+						        			?>
 							        	</select>
 							      	</label>
 							    </div>
@@ -98,6 +100,7 @@ session_start();
 							<hr>
 							<div class="row">
 								<div class="large-12 columns text-right">
+									<button class="button warning" type="reset"> <i class="fa fa-clear"></i> Limpiar</button>
 									<button class="button success"> <i class="fa fa-send"></i> Enviar</button>
 								</div>
 							</div>
@@ -111,10 +114,11 @@ session_start();
 		<script src="../js/vendor/foundation.min.js"></script>
 		<script src="../js/menu.js"></script>
 		<script src="../js/tabs.js"></script>
+		<script src="../js/app/anunciantes.js"></script>
 	</html>
 <?php
 	}else{
-		header("location: ../index.php")
+		header("location: ../index.php");
 	}
 
 ?>
