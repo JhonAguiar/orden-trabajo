@@ -53,10 +53,11 @@ if($_SESSION['valido']){
 		</div>
 		
 		<div class="container">
-			<form id="" name="">
+			<form id="" name="" enctype="multipart/form-data" method="POST">
 				<div class="row">
 					<div class="large-3 columns" style="text-align: center">
 						<img src="../img/no-photo.png" alt="">
+                                                <input type="file" name="foto_perfil"/>
 						<br><br>
 						<div>
 							<button class="button info"> SUBIR FOTO</button>

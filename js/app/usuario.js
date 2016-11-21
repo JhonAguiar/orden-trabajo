@@ -19,6 +19,7 @@ var Usuario = ( function(){
 		$( "#form-user" ).on( "submit" , function(e){
 			e.preventDefault();
 			scope.envioDatos( this );
+                        scope.subirFoto();
 		} )
 
 		//Completar registro
@@ -130,18 +131,34 @@ var Usuario = ( function(){
 	};
 
 	//Envio de datos
-	Usuario.prototype.envioDatos = function(element) {
+	Usuario.prototype.envioDatos = function(element) { 
 		$.ajax({
 			data: "a=envioDatos&valid="+validar+"&"+$(element).serialize(),
 			url: "../controller/UserController.php",
-			method: "POST",
+			method: "POST",                        
 			success: function( data ){
-
+                            console.log(data);
 			},error: function(){
 
 			}
 		})
 	};
+        
+        
+        Usuario.prototype.subirFoto = function(){
+            var formData = new FormData($('#form-user')[0]);
+            $.ajax({
+                url: '../controller/fotoUserController.php',
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (datos)
+                {
+                    console.log(datos);
+                }
+            });
+        }
 
 	return Usuario;
 }() );

@@ -78,7 +78,7 @@
 			</div>
 			<div class="content-two">
 				<div class="container">
-					<form id="form-user" name="form-user">
+					<form id="form-user" name="form-user" enctype="multipart/form-data" method="POST">
 					 	<input type="hidden" id="id_usuario" name="id_usuario">
 						<div class="row">
 							<div class="large-3 columns" style="text-align: center">
