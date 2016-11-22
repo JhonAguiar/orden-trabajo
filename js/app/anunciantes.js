@@ -71,7 +71,7 @@ var Anunciante = (function(){
 			data: "a=saveAnunciante&valid="+validar+"&"+$(element).serialize(),
 			method: "POST",
 			success: function( data ){
-
+                            
 			},error: function(){
 
 			}
