@@ -21,12 +21,17 @@ var Anunciante = (function(){
 			e.preventDefault();
 
 			scope.guardarAnunciante( this );
-		} )
+		});
 
 		$( document ).on( "click" , ".editar-registro" , function(e){
 			e.preventDefault();
 			scope.completarAnunciante( this );
-		})
+		});
+                
+		$( document ).on( "click" , ".eliminar-registro" , function(e){
+			e.preventDefault();
+			scope.eliminarAnunciante( this );
+		});
 	};
 
 	/**
@@ -71,7 +76,7 @@ var Anunciante = (function(){
 			data: "a=saveAnunciante&valid="+validar+"&"+$(element).serialize(),
 			method: "POST",
 			success: function( data ){
-
+                            
 			},error: function(){
 
 			}
@@ -106,6 +111,19 @@ var Anunciante = (function(){
 		})
 
 	}
+        
+        
+        Anunciante.prototype.eliminarAnunciante = function( element ){
+            var ele = $(element).parent().parent();
+            var id = $(ele).attr("id");
+            $.ajax({
+                url: '../controller/ClienteController.php',
+                type: 'post',
+                data: "a=eliminarAnunciante&id="+id
+            }).success(function(response){
+                console.log(response);
+            });
+        }
 
 	return Anunciante;
 }())

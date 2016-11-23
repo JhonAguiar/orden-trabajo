@@ -136,15 +136,17 @@
 
 		public function saveAnunciante( $data = array() ){
 			$valid = $data['valid'];
-			$id_anunciante = $data["id_anunciante"];
+			$id_anunciante = intval($data["id_anunciante"]);
 			$anunciante = $data['anunciante'];
-			$cliente = $data['cliente'];
+			$cliente = intval($data['cliente']);
 			$sector = $data['sector'];
 
 			if($valid == 1){
+
 				$sql = "INSERT INTO anunciante (cliente , nombre , sector) values (  '$cliente' , '$anunciante' , '$sector' )";
+
 			}else{
-				$sql = "UPDATE anunciante SET cliente='$cliente' , nombre=$anunciante , sector='$sector' where id_anunciante='$id_anunciante' ;";
+				$sql = "UPDATE anunciante SET cliente='$cliente', nombre='$anunciante', sector='$sector' where id_anunciante=$id_anunciante;";
 			}
 
 			$result = $this->conexion->query($sql);
@@ -170,6 +172,16 @@
 
 			return $response;
 		}
+                
+                public function eliminarAnunciante($id){
+                    $sql = "DELETE FROM anunciante WHERE id_anunciante = ".intval($id);
+                    $this->conexion->query($sql);
+                    if(mysqli_affected_rows($this->conexion) > 0){
+                        return TRUE;
+                    }else{
+                        return FALSE;
+                    }
+                }
 
 	}
 ?>
