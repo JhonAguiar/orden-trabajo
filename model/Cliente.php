@@ -142,17 +142,23 @@
 			$sector = $data['sector'];
 
 			if($valid == 1){
-				$sql = "INSERT INTO anunciante (cliente , nombre , sector) values ( $anunciante' , $cliente , $sector )";
+				$sql = "INSERT INTO anunciante (cliente , nombre , sector) values (  '$cliente' , '$anunciante' , '$sector' )";
 			}else{
 				$sql = "UPDATE anunciante SET cliente='$cliente' , nombre=$anunciante , sector='$sector' where id_anunciante='$id_anunciante' ;";
 			}
 
 			$result = $this->conexion->query($sql);
 
-			return $result;
+			return $sql;
 		}
 
-		public function completeAnun( $id ){
+		/**
+		 * @author Jhon Aguiar
+		 * @param int $id Integer con información para buscar un registro
+		 * @return Array con los datos de la consulta
+		 * Esta funcion completa los datos del anunciante
+		 */
+		public function completeAnun( $id ){	
 
 			$sql = "SELECT * FROM anunciante where id_anunciante = '$id'"; 
 

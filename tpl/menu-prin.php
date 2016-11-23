@@ -81,8 +81,8 @@
 							<span>Orden de Trabajo</span>
 						</li>
 					</a>
-					<a>
-						<li href="element/anunciantes.php">
+					<a href="element/anunciantes.php">
+						<li >
 							<span>Anunciantes</span>
 						</li>
 					</a>
