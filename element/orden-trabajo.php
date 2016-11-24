@@ -21,8 +21,7 @@
         <script>
             $( function() {
                 $( "#desde" ).datepicker();
-                $( "#hasta" ).datepicker();
-                
+                $( "#hasta" ).datepicker();     
             } );
         </script>
     </head>
@@ -127,7 +126,7 @@
                             </label>
                         </div>
                     </div>
-
+				
                     <div class="contents-tab-ver">
                         <div class="vertical-one">
                             <ul>
@@ -283,7 +282,7 @@
                                         </div>
                                         <div class="large-6 columns">
                                             <label>Numéro de Factura
-                                                <input type="text" name="factura" id="factura">
+                                                <input type="text" name="factura" id="factura" readonly>
                                             </label>
                                         </div>
                                     </div>

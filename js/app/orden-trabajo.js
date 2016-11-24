@@ -8,28 +8,41 @@ var orden = (function(){
 
 		var scope = this;
 
+		//COMPLETAR INFORMACIÓN NOMBRE DEL CLIENTE
 		$("#nombre_cliente").on("change",  function(e){
 			e.preventDefault();
 			scope.completarAnunciantes($(this).val());	
 		})
 
+		//INICIALIZAR VALOR
 		$("[id^='val-']").val(0);
 
+		//CALCULAR VALOR
 		$("[id^='val-']").on("blur" , function(e){
 			e.preventDefault();
 			scope.calcularMedios();
 		});
 
+		//VALIDAR ENTEROS
 		$("[id^='val-']").on("keypress" , function(event){
 			if(event.keyCode < 47 || event.keyCode > 57){
 				return event.returnValue = false;
 			}
 		})
+
+		$("#desde").on("focus", function(e){
+			e.preventDefault();
+			$("#desde").val("");
+			$("#hasta").val("");
+			$("#dias").val("");
+		})
+		//CONTADOR DIAS
+		$("#hasta").on("change" , function(event){
+			event.preventDefault();
+			scope.calcularDias(this);
+		})
 	};
 
-	/**
-	 * COMPLETAR ANUNCIANTE
-	 */
 	orden.prototype.completarAnunciantes = function( element ){
 		if(element != ""){
 			$("#anunciante").removeAttr("disabled");
@@ -78,6 +91,21 @@ var orden = (function(){
 
 		var total = impresos+radio+television+internet+analisis;
 		$("#total").val(total);
+	}
+
+	orden.prototype.calcularDias = function(event){
+		var desde = $("#desde").val();
+		var hasta = $(event).val()
+		var fechaDesde = desde.split("-");
+		var fechaHasta = hasta.split("-");
+
+		 var fFecha1 = Date.UTC(fechaDesde[0],fechaDesde[1]-1,fechaDesde[2]); 
+		 var fFecha2 = Date.UTC(fechaHasta[0],fechaHasta[1]-1,fechaHasta[2]); 
+		 var dif = fFecha2 - fFecha1;
+		 var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
+		
+		$("#dias").val(dias);
+
 	}
 
 	return orden;
