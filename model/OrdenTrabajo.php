@@ -18,7 +18,13 @@
 			while($row = $result->fetch_assoc()){
 				$response[] = $row;
 			}
-			return $response;
+
+			if(mysqli_num_rows($result) != 0){
+				return $response;
+			}else{
+				return 0;
+			}
+			
 		}
 
 		public function ordenNit($id){

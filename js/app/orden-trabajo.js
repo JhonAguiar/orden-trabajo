@@ -47,6 +47,7 @@ var orden = (function(){
 		if(element != ""){
 			$("#anunciante").removeAttr("disabled");
 			$("#anunciante").empty();
+			$("<option>" , { "text" : "-- Seleccione una opción --" , "selected" : true , "value" : "" , "disabled" : true }).appendTo("#anunciante");
 			$("#anunciante").val("");
 			$("#nit_anunciante").val("");
 
@@ -74,6 +75,8 @@ var orden = (function(){
 						$.each(data , function(i, v){
 							$("<option>" , { "value" : v.id_anunciante , "text" : v.nombre } ).appendTo("#anunciante");
 						})
+					}else{
+						alert("asdasd")
 					}
 				},error: function(){
 					alert("Ha ocurrido un error");
