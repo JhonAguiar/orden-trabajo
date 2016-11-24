@@ -11,7 +11,7 @@
 		}
 
 		public function ordenTrabajo($id){
-			$sql = "SELECT an.* , cli.nit FROM anunciante as an INNER JOIN cliente as cli ON cli.id_cliente = an.cliente where an.cliente = $id";
+			$sql = "SELECT * FROM anunciante where cliente = $id";
 			
 			$result = $this->conexion->query($sql);
 			
@@ -19,6 +19,17 @@
 				$response[] = $row;
 			}
 			return $response;
+		}
+
+		public function ordenNit($id){
+			$sql = "SELECT nit FROM cliente where id_cliente = $id";
+			
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+			return $response[0];
 		}
 
 	}

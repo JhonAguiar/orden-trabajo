@@ -154,43 +154,38 @@
                                                 <div class="row field-left">
                                                     <legend>&nbsp;&nbsp;&nbsp;<b>Medios a monitorear</b></legend>
                                                     <div class="normal-one">
-                                                        <input id="valor_impresos" type="checkbox">
                                                         <label for="valor_impresos">Valor Impresos</label>
                                                     </div>
                                                     <div class="normal">
-                                                        <input type="text">
+                                                        <input type="text" id="val-impresos" name="val-impresos">
                                                     </div>
                                                     <div class="normal-one">
-                                                        <input id="valor_radio" type="checkbox">
                                                         <label for="valor_radio">Valor Radio</label>
                                                     </div>
                                                     <div class="normal">
-                                                        <input type="text">
+                                                        <input type="text" id="val-radio" name="val-radio">
                                                     </div>
                                                     <div class="normal-one">
-                                                        <input id="valor_television" type="checkbox">
                                                         <label for="valor_television">Valor Televisión</label>
                                                     </div>
                                                     <div class="normal">
-                                                        <input type="text">
+                                                        <input type="text" id="val-television" name="val-television">
                                                     </div>
                                                     <div class="normal-one">
-                                                        <input id="valor_internet" type="checkbox">
                                                         <label for="valor_internet">Valor Internet</label>
                                                     </div>
                                                     <div class="normal">
-                                                        <input type="text">
+                                                        <input type="text" id="val-internet" name="val-internet">
                                                     </div>
                                                     <div class="normal-one">
-                                                        <input id="valor_analisis" type="checkbox">
                                                         <label for="valor_analisis">Valor Análisis</label>
                                                     </div>
                                                     <div class="normal">
-                                                        <input type="text">
+                                                        <input type="text" id="val-analisis" name="val-analisis">
                                                     </div>
                                                     <div class="normal-one"><b>Total</b></div>
                                                     <div class="normal">
-                                                        <input type="text" readonly>
+                                                        <input type="text" id="total" name="total" readonly>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -337,7 +332,7 @@
     <script src="../js/menu.js"></script>
     <script src="../js/tabs.js"></script>
     <script src="../js/vertical-tab.js"></script>
-    <script src="../js/vista-previa.js"></script>
+    <!--<script src="../js/vista-previa.js"></script>-->
     <script src="../js/app/orden-trabajo.js"></script>
 </html>
 <?php
