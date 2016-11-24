@@ -114,15 +114,18 @@ var Anunciante = (function(){
         
         
         Anunciante.prototype.eliminarAnunciante = function( element ){
-            var ele = $(element).parent().parent();
-            var id = $(ele).attr("id");
-            $.ajax({
-                url: '../controller/ClienteController.php',
-                type: 'post',
-                data: "a=eliminarAnunciante&id="+id
-            }).success(function(response){
-                console.log(response);
-            });
+        	var valid = confirm("Desea eliminar este registro");
+        	if(valid == true){
+           	 var ele = $(element).parent().parent();
+            	var id = $(ele).attr("id");
+	            $.ajax({
+	                url: '../controller/ClienteController.php',
+	                type: 'post',
+	                data: "a=eliminarAnunciante&id="+id
+	            }).success(function(response){
+	                console.log(response);
+	            });
+            }
         }
 
 	return Anunciante;

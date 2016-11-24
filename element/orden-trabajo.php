@@ -143,9 +143,6 @@
                                 <div id="vertical-tab-four">
                                     <li>Datos del negocio</li>
                                 </div>
-                                <div id="vertical-tab-five">
-                                    <li>Aprobaciones</li>
-                                </div>
                             </ul>
                         </div>
                         <div class="vertical-two">
@@ -290,13 +287,6 @@
                                             </label>
                                         </div>
                                         <div class="large-6 columns">
-                                            <label>Facturación
-                                                <select name="facturacion" id="facturacion">
-                                                    <option value="">-- Seleccione una opción --</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                        <div class="large-6 columns">
                                             <label>Numéro de Factura
                                                 <input type="text" name="factura" id="factura">
                                             </label>
@@ -336,42 +326,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="contenete-ver-five">
-                                <div class="container">
-                                    <div class="row">
-                                        <h6><b>Firmas entidad</b></h6>
-                                    </div>
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <div class="large-5 columns">
-                                                <label for="firma1" class="button">Subir Firma Comercial</label>
-                                                <input type="file" id="firma1" class="show-for-sr">
-                                            </div>
-                                            <div class="large-7 columns">
-                                                <canvas class="vistaPreviaFirma" id="previa1"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="large-12 columns">
-                                            <div class="large-5 columns">
-                                                <label for="firma2" class="button">Subir Firma Servicio al cliente</label>
-                                                <input type="file" id="firma2" class="show-for-sr">
-                                            </div>
-                                            <div class="large-7 columns">
-                                                <canvas class="vistaPreviaFirma" id="previa2"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="large-12 columns">
-                                            <div class="large-5 columns">
-                                                <label for="firma3" class="button">Subir Firma Operaciones</label>
-                                                <input type="file" id="firma3" class="show-for-sr">
-                                            </div>
-                                            <div class="large-7 columns">
-                                                <canvas class="vistaPreviaFirma" id="previa3"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -384,6 +338,7 @@
     <script src="../js/tabs.js"></script>
     <script src="../js/vertical-tab.js"></script>
     <script src="../js/vista-previa.js"></script>
+    <script src="../js/app/orden-trabajo.js"></script>
 </html>
 <?php
     }else{

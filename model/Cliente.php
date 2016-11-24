@@ -173,15 +173,15 @@
 			return $response;
 		}
                 
-                public function eliminarAnunciante($id){
-                    $sql = "DELETE FROM anunciante WHERE id_anunciante = ".intval($id);
-                    $this->conexion->query($sql);
-                    if(mysqli_affected_rows($this->conexion) > 0){
-                        return TRUE;
-                    }else{
-                        return FALSE;
-                    }
-                }
+        public function eliminarAnunciante($id){
+            $sql = "DELETE FROM anunciante WHERE id_anunciante = ".intval($id);
+            $this->conexion->query($sql);
+            if(mysqli_affected_rows($this->conexion) > 0){
+                return TRUE;
+            }else{
+                return FALSE;
+            }
+        }
 
 	}
 ?>
