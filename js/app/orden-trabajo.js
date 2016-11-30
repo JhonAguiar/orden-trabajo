@@ -8,6 +8,8 @@ var orden = (function(){
 
 		var scope = this;
 
+		scope.listarOrdenTrabajo();
+
 		//COMPLETAR INFORMACIÓN NOMBRE DEL CLIENTE
 		$("#nombre_cliente").on("change",  function(e){
 			e.preventDefault();
@@ -108,7 +110,42 @@ var orden = (function(){
 		 var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
 		
 		$("#dias").val(dias);
+	}
 
+	orden.prototype.listarOrdenTrabajo = function(){
+		$.ajax({
+			url: "../controller/ordenController.php",
+			data: "a=listarOrdenTrabajo",
+			method: "POST",
+			success: function( data ){
+				if(data.length > 0){
+					data = $.parseJSON(data);
+					$.each(data , function(i ,v){
+						console.log(v);
+						$( "<tr>" ).append(
+							$( "<td>" , { "text" : v.id_orden_trabajo } ),
+							$( "<td>" , { "text" : v.cliente}),
+							$( "<td>" , { "text" : v.nombre } ),
+							$( "<td>" , { "text" : v.tipo }),
+							$( "<td>" ).append(
+								$("<a>" , { "href" : "" , "class" : "eliminar-registro" ,"style": "color:red;"}).append(
+									$("<i>" , { "class" : "fa fa-remove" })
+								),
+								$("<a>" , { "href" : "" ,"class" :"editar-registro" , "style": "margin-left:20px; color:blue;"  }).append(
+									$("<i>" , { "class" : "fa fa-edit" })
+								)
+							)
+						).appendTo("#mostrarOt")
+					})
+				}else{
+					$("<tr>").append(
+						$("<td>" , { "colspan" : "5" ,  "text" : "No hay registros disponibles"})
+					).appendTo("#mostrarOt");
+				}
+			},error: function(){
+
+			}
+		})
 	}
 
 	return orden;
