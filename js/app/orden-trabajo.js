@@ -1,3 +1,9 @@
+//Variable validar el envio del form
+var validar = 1;
+
+/**
+ * CLOSURE ORDEN DE TRABAJO
+ */
 var orden = (function(){
 
 	function orden(){
@@ -42,6 +48,11 @@ var orden = (function(){
 		$("#hasta").on("change" , function(event){
 			event.preventDefault();
 			scope.calcularDias(this);
+		})
+
+		$("#form-ot").on("submit" , function(e){
+			e.preventDefault();
+			scope.guardarOrdenes( this );
 		})
 	};
 
@@ -118,8 +129,8 @@ var orden = (function(){
 			data: "a=listarOrdenTrabajo",
 			method: "POST",
 			success: function( data ){
-				if(data.length > 0){
-					data = $.parseJSON(data);
+				data = $.parseJSON(data);
+				if(data != "ERROR"){	
 					$.each(data , function(i ,v){
 						console.log(v);
 						$( "<tr>" ).append(
@@ -139,13 +150,27 @@ var orden = (function(){
 					})
 				}else{
 					$("<tr>").append(
-						$("<td>" , { "colspan" : "5" ,  "text" : "No hay registros disponibles"})
+						$("<td>" , { "colspan" : "5" ,  "text" : "No hay registros disponibles" , "style" : "text-align:center"})
 					).appendTo("#mostrarOt");
 				}
+			},error: function(){
+				alert("Ha ocurrido un error");
+			}
+		})
+	}
+
+	orden.prototype.guardarOrdenes = function( element ){
+		$.ajax({
+			url: "../controller/ordenController.php",
+			data: "a=guardarOrden&valid="+validar+"&"+$(element).serialize(),
+			method: "POST",
+			success: function( data ){
+				console.log(data);
 			},error: function(){
 
 			}
 		})
+
 	}
 
 	return orden;

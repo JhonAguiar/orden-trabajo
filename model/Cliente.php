@@ -133,7 +133,9 @@
 			return $response;
 		}
 
-
+		/**
+		 * Función almacenar el anunciante
+		 */
 		public function saveAnunciante( $data = array() ){
 			$valid = $data['valid'];
 			$id_anunciante = intval($data["id_anunciante"]);
@@ -151,7 +153,7 @@
 
 			$result = $this->conexion->query($sql);
 
-			return $sql;
+			return $result;
 		}
 
 		/**

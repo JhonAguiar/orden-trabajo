@@ -129,7 +129,7 @@
 	                    <div class="row">
 	                        <div class="large-12 columns">
 	                            <label>Aplicación
-	                                <textarea name="" id="" cols="10" rows="2"></textarea>
+	                                <textarea name="aplicacion" id="aplicacion" cols="10" rows="2"></textarea>
 	                            </label>
 	                        </div>
 	                    </div>
@@ -200,24 +200,16 @@
 	                                                <div class="row">
 	                                                    <legend>&nbsp;&nbsp;&nbsp;<b>Alertas</b></legend>
 	                                                    <div class="normal-one">
-	                                                        <input id="valor_impresos" type="checkbox">
-	                                                        <label for="valor_impresos">Alertas</label>
+	                                                        <input id="ale_free_press" name="ale_free_press" type="checkbox">
+	                                                        <label for="ale_free_press">Free Press</label>
 	                                                    </div>
 	                                                    <div class="normal-one">
-	                                                        <input id="valor_impresos" type="checkbox">
-	                                                        <label for="valor_impresos">Free Press</label>
+	                                                        <input id="ale_publicidad" name="ale_publicidad" type="checkbox">
+	                                                        <label for="ale_publicidad">Publicidad</label>
 	                                                    </div>
 	                                                    <div class="normal-one">
-	                                                        <input id="valor_impresos" type="checkbox">
-	                                                        <label for="valor_impresos">Publicidad</label>
-	                                                    </div>
-	                                                    <div class="normal-one">
-	                                                        <input id="valor_impresos" type="checkbox">
-	                                                        <label for="valor_impresos">Análisis</label>
-	                                                    </div>
-	                                                    <div class="normal-one">
-	                                                        Tipo de alerta
-	                                                        <input type="text">
+	                                                        <input id="ale_analisis" name="ale_analisis" type="checkbox">
+	                                                        <label for="ale_analisis">Análisis</label>
 	                                                    </div>
 	                                                </div>
 	                                            </fieldset>
@@ -320,7 +312,7 @@
 	                                    <div class="row">
 	                                        <div class="large-12 columns">
 	                                            <label>Observaciones
-	                                                <textarea placeholder="Observaciones" name="observaciones" id="observaciones"></textarea>
+	                                                <textarea placeholder="Observaciones" name="observaciones_2" id="observaciones_2"></textarea>
 	                                            </label>
 	                                        </div>
 	                                    </div>

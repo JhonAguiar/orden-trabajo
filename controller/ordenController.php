@@ -23,6 +23,15 @@
 			$orden = $ord->listarOrdenTrabajo();
 			echo json_encode($orden);
 		break;
+		case 'guardarOrden':
+			$ord = new OrdenTrabajo();
+			$orden = $ord->guardarOrden($_POST);
+			if ( $clien ) {
+				echo json_encode( array( 'success'=>true ) );
+			} else {
+				echo json_encode( array( 'success'=>false ) );
+			}
+		break;
 		default:
 			echo "Ha ocurrido un problema";
 		break;
