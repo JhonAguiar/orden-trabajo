@@ -2,7 +2,9 @@
     session_start();
 
     if($_SESSION['valido']){
+
         require_once "../model/Cliente.php";
+        require_once "../model/OrdenTrabajo.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,14 +65,16 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nit</th>
+                                <th>Num OT</th>
                                 <th>Cliente</th>
-                                <th>Telefono</th>
+                                <th>Anunciante</th>
+                                <th>Tipo OT</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -83,6 +87,7 @@
             <div class="content-two">
                 <div class="container">
                 	<form id="form-ot" name="form-ot">
+                		<input type="hidden" id="id_orden_trabajo" name="id_orden_trabajo">
 	                    <div class="row">
 	                        <div class="large-6 columns">
 	                            <label>Nombre Cliente
@@ -116,6 +121,13 @@
 	                            <label>Tipo de OT
 	                                <select name="tipo_ot" id="tipo_ot">
 	                                    <option value="">-- Seleccione una opción --</option>
+	                                    <?php
+	                                        $ord = new OrdenTrabajo();
+	                                        $orden = $ord->tipoOt();
+	                                        for ($i=0; $i < count($orden) ; $i++) { 
+	                                            echo '<option value="'.$orden[$i]["id_tipo"].'">'.$orden[$i]["tipo"].'</option>';
+	                                        }
+	                                    ?>
 	                                </select>
 	                            </label>
 	                        </div>

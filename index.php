@@ -10,6 +10,7 @@
 		<div class="row">
 			<div class="columns medium-6 medium-offset-3">
 				<section id="content-login">
+					<!-- index  -->
 					<h4 class="text-center">SISTEMA GESTIÓN ORDENES DE TRABAJO</h4>
 					<form action="controller/loginController.php" method="post" class="logIn.php">
 						<div class="row">

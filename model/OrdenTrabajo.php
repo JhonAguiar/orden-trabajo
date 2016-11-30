@@ -10,6 +10,18 @@
 			$this->conexion = Conectar::conexion();
 		}
 
+		public function tipoOt(){
+			$sql = "SELECT * FROM tipo_ot";
+
+			$result = $this->conexion->query($sql);
+			
+			while($row = $result->fetch_assoc()){
+				$response[] = $row;
+			}
+
+			return $response;
+		}
+
 		public function ordenTrabajo($id){
 			$sql = "SELECT * FROM anunciante where cliente = $id";
 			

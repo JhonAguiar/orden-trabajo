@@ -11,10 +11,20 @@
 			$this->conexion =  Conectar::conexion();
 		}
 
+		function validator($ele1 , $ele2){
+			$array = array(
+				'user' => addslashes(trim($ele1)),
+				'pass' => addslashes(trim($ele2))
+			);
+			return $array;
+		}
+
 		public function logIn($usuario, $password){
 			$response = array();
-			$sql = "SELECT * FROM usuario WHERE usuario = '".$usuario."' and contrasena = ".$password."";
-			//$sql = "SELECT * FROM usuario";
+
+			$arreg = $this->validator($usuario, $password);
+
+			$sql = "SELECT * FROM usuario WHERE usuario = '".$arreg["user"]."' and contrasena = ".$arreg["pass"]."";
 
 			$result = $this->conexion->query($sql);
 			
@@ -23,6 +33,8 @@
 			}
 			return $response;
 		}
+
+	
 
 	}
 
