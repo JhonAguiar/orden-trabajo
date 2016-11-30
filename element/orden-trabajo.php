@@ -312,7 +312,7 @@
 	                                    <div class="row">
 	                                        <div class="large-12 columns">
 	                                            <label>Observaciones
-	                                                <textarea placeholder="Observaciones" name="observaciones_2" id="observaciones_2"></textarea>
+	                                                <textarea placeholder="Observaciones" name="observaciones" id="observaciones"></textarea>
 	                                            </label>
 	                                        </div>
 	                                    </div>
