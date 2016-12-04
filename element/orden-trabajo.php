@@ -119,7 +119,7 @@
 	                                        $ord = new OrdenTrabajo();
 	                                        $orden = $ord->tipoOt();
 	                                        for ($i=0; $i < count($orden) ; $i++) { 
-	                                            echo '<option value="'.$orden[$i]["id_tipo"].'">'.$orden[$i]["tipo"].'</option>';
+	                                            echo '<option value="'.$orden[$i]["id_tipo"].'">'.$orden[$i]["tipo_ot"].'</option>';
 	                                        }
 	                                    ?>
 	                                </select>

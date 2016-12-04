@@ -129,8 +129,8 @@ var orden = (function(){
 			data: "a=listarOrdenTrabajo",
 			method: "POST",
 			success: function( data ){
-				data = $.parseJSON(data);
-				if(data != "ERROR"){	
+				if(data != "ERROR"){
+					data = $.parseJSON(data);	
 					$.each(data , function(i ,v){
 						console.log(v);
 						$( "<tr>" ).append(
