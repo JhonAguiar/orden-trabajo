@@ -60,7 +60,7 @@ var orden = (function(){
 		if(element != ""){
 			$("#anunciante").removeAttr("disabled");
 			$("#anunciante").empty();
-			$("<option>" , { "text" : "-- Seleccione una opción --" , "selected" : true , "value" : "" , "disabled" : true }).appendTo("#anunciante");
+			$("<option>" , { "text" : "-- Seleccione una opción --" , "selected" : true , "value" : "1" , "disabled" : false }).appendTo("#anunciante");
 			$("#anunciante").val("");
 			$("#nit_anunciante").val("");
 

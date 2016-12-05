@@ -86,22 +86,22 @@
 			$free_press = "";
 			$publicidad = "";
 			$analisis = "";                                                                                                                                                                                                                    
-			$validar = $array["valid"];
+			$validar = intval($array["valid"]);
 			$id_orden_trabajo = intval($array["id_orden_trabajo"]);
 			$aplicacion = $array["aplicacion"];
 			$actividad = $array["actividad"];
 			$anunciante = intval($array["anunciante"]);
 			$categoria = $array["categoria"];
-			$comercial = $array["comercial"];
+			$comercial = intval($array["comercial"]);
 			$competencias = $array["competencias"];
 			$desde = $array["desde"];
 			$dias = $array["dias"];
 			$entorno = $array["entorno"];
-			$factura = $array["factura"];
+			$factura = intval($array["factura"]);
 			$hasta = $array["hasta"];
 			$marca = $array["marca"];
 			$nit_anunciante = $array["nit_anunciante"];
-			$nombre_cliente = $array["nombre_cliente"];
+			$nombre_cliente = intval($array["nombre_cliente"]);
 			$observ_cierre = $array["observ_cierre"];
 			$observaciones = $array["observaciones"];
 			$sectores = $array["sectores"];
@@ -115,16 +115,16 @@
 			$free_press = (isset($array["ale_free_press"]) && !empty($array["ale_free_press"])) ? $array["ale_free_press"] : "";
 			$publicidad = (isset($array["ale_publicidad"]) && !empty($array["ale_publicidad"])) ? $array["ale_publicidad"] : "";
 			$analisis = (isset($array["ale_analisis"]) && !empty($array["ale_analisis"])) ? $array["ale_analisis"] : "";
-			$comp = $free_press+";"+$publicidad+";"+$analisis;
-
+			$comp = $free_press+";"+$publicidad+";"+$analisis;                        
+                        
 			if($validar === 1){
-				$sql = "INSERT INTO orden_trabajo (cliente , anunciante , tipo_ot , aplicacion , valor_impresion , valor_radio , valor_television , valor_internet , valor_analisis , tipo_alerta , observaciones , marca , entorno , competencias , sectores , actividad , facturacion , desde , hasta , comercial  ) VALUES ( $nombre_cliente , $anunciante , $tipo_ot , '$aplicacion' , $val_impresos , $val_radio , $val_television , $val_internet , $val_analisis , '$comp' , '$observaciones' , '$marca' , '$entorno' , '$competencias' , '$sectores' , '$actividad' , $factura , '$desde' , '$hasta' , $comercial )";
+				$sql = "INSERT INTO orden_trabajo (cliente , anunciante , tipo_ot , aplicacion , valor_impresion , valor_radio , valor_television , valor_internet , valor_analisis , tipo_alerta , observaciones , marca , entorno , competencias , sectores , actividad , facturacion , desde , hasta , comercial  ) VALUES ( $nombre_cliente, $anunciante, $tipo_ot, '$aplicacion' , $val_impresos , $val_radio , $val_television , $val_internet , $val_analisis , '$comp' , '$observaciones' , '$marca' , '$entorno' , '$competencias' , '$sectores' , '$actividad' , $factura , '$desde' , '$hasta' , $comercial )";
 			}else{
-				$sql = "UPDATE orden_trabajo SET cliente='$nombre_cliente', anunciante='$anunciante', tipo_ot=$tipo_ot , aplicacion='$aplicacion' , valor_impresion=$val_impresos , valor_radio=$val_radio , valor_televison=$val_television , valor_internet=$val_internet , valor_analisis=$val_analisis , tipo_alerta='$comp' , observaciones='$observaciones' , marca='$marca' , entorno='$entorno' , competencias='$competencias' , sectores='$sectores' , actividad='$actividad' , facturacion='$factura' , desde='$desde' , hasta='$hasta' , comercial=$comercial where id_orden_trabajo=$id_orden_trabajo;";
+				$sql = "UPDATE orden_trabajo SET cliente=$nombre_cliente, anunciante=$anunciante, tipo_ot=$tipo_ot , aplicacion='$aplicacion' , valor_impresion=$val_impresos , valor_radio=$val_radio , valor_television=$val_television , valor_internet=$val_internet , valor_analisis=$val_analisis , tipo_alerta='$comp' , observaciones='$observaciones' , marca='$marca' , entorno='$entorno' , competencias='$competencias' , sectores='$sectores' , actividad='$actividad' , facturacion=$factura, desde='$desde' , hasta='$hasta' , comercial=$comercial where id_orden_trabajo=$id_orden_trabajo;";
 			}
 
 			$result = $this->conexion->query($sql);
-                        echo $result." <<<<\n";
+                        echo $this->conexion->error;
 
 			return $result;
 		}
