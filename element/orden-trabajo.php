@@ -101,8 +101,8 @@
 	                    <div class="row">
 	                        <div class="large-5 columns">
 	                            <label>Anunciante
-	                                <select name="anunciante" id="anunciante" disabled>
-	                                    <option value="" disabled selected>-- Seleccione una opción --</option>
+	                                <select name="anunciante" id="anunciante">
+	                                    <option value="1">-- Seleccione una opción --</option>
 	                                </select>
 	                            </label>
 	                        </div>
@@ -200,15 +200,15 @@
 	                                                <div class="row">
 	                                                    <legend>&nbsp;&nbsp;&nbsp;<b>Alertas</b></legend>
 	                                                    <div class="normal-one">
-	                                                        <input id="ale_free_press" name="ale_free_press" type="checkbox">
+                                                                <input id="ale_free_press" name="ale_free_press" type="checkbox" value="free-press">
 	                                                        <label for="ale_free_press">Free Press</label>
 	                                                    </div>
 	                                                    <div class="normal-one">
-	                                                        <input id="ale_publicidad" name="ale_publicidad" type="checkbox">
+                                                                <input id="ale_publicidad" name="ale_publicidad" type="checkbox" value="publicidad">
 	                                                        <label for="ale_publicidad">Publicidad</label>
 	                                                    </div>
 	                                                    <div class="normal-one">
-	                                                        <input id="ale_analisis" name="ale_analisis" type="checkbox">
+                                                                <input id="ale_analisis" name="ale_analisis" type="checkbox" value="analisis">
 	                                                        <label for="ale_analisis">Análisis</label>
 	                                                    </div>
 	                                                </div>
