@@ -157,8 +157,7 @@
 					</div>
 					<div class="row">
 						<div class="large-12 columns text-center">
-							<button class="btn-sender">Ver Información Facturación</button>
-							<hr>
+							OT's Facturar
 						</div>
 					</div>
 					<div class="row">
@@ -223,6 +222,7 @@
 	<script src="../js/vendor/foundation.min.js"></script>
 	<script src="../js/menu.js"></script>
 	<script src="../js/tabs.js"></script>
+	<script src="../js/app/facturacion.js"></script>
 </html>
 <?php
 	}else{
