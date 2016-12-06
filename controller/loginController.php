@@ -26,6 +26,7 @@ if(empty($log->logIn($user, $pass))){
 	$_SESSION['correo'] = $datos[0]["correo"];
 	$_SESSION['ciudad'] = $datos[0]["ciudad"];
 	$_SESSION['rol'] = $datos[0]["rol"];
+	$_SESSION['src'] = $datos[0]["src_img"];
 	header ("location: ../inicio.php");
 }
 
