@@ -137,7 +137,7 @@ var orden = (function(){
 							$( "<td>" , { "text" : v.id_orden_trabajo } ),
 							$( "<td>" , { "text" : v.cliente}),
 							$( "<td>" , { "text" : v.nombre } ),
-							$( "<td>" , { "text" : v.tipo }),
+							$( "<td>" , { "text" : v.tipo_ot }),
 							$( "<td>" ).append(
 								$("<a>" , { "href" : "" , "class" : "eliminar-registro" ,"style": "color:red;"}).append(
 									$("<i>" , { "class" : "fa fa-remove" })
