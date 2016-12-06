@@ -1,4 +1,4 @@
-
+// CLOSURE ESPECIFÍCO
 var facturacion = (function(){
 
 	function facturacion(){
@@ -15,10 +15,11 @@ var facturacion = (function(){
 			e.preventDefault()
 			scope.listarOT($(this).val());
 		})
+	}
 
-
-	};
-
+	/**
+	 * LISTAR LAS ORDENES DE TRABAJO
+	 */
 	facturacion.prototype.listarOT = function( element ){
 		//LISTAR LAS ORDENES DE TRABAJO
 		$.ajax({
@@ -47,6 +48,9 @@ var facturacion = (function(){
 		})
 	}
 
+	/**
+	 * Completar la información de los clientes
+	 */
 	facturacion.prototype.completeInfo = function( element ){
 		$.ajax({
 			url: "../controller/facturaController.php",
@@ -66,7 +70,7 @@ var facturacion = (function(){
 
 }())
 
-
+//CARGAR CLOSURE
 $(document).ready(function(){
 	facturacion = new facturacion;
 })

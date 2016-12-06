@@ -1,5 +1,11 @@
+/**
+ * Eventos al cargar el DOM
+ */
 $(document).ready(function () {
 
+    /**
+     * ACTUALIZAR EL PERFIL
+     */
     function actualizar_perfil(datos) {
         $.ajax({
             url: '../controller/perfilController.php',
@@ -12,6 +18,9 @@ $(document).ready(function () {
         });
     }
 
+    /**
+     * Enviar los datos del usuario
+     */
     $("#form-perfil").submit(function (e) {
         e.preventDefault();
         var formData = new FormData($('#form-perfil')[0]);

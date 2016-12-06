@@ -1,7 +1,11 @@
 <?php
 
 	require_once "../db/conectar.php";
-
+	/**
+	 * class Usuario
+	 * posee los metodos de interacción modulo de Usuario
+	 * @author Jhon Aguiar Moreno , Giovanny Arturo Rincon
+	 */
 	class Usuario{
 
 		private $conexion;
@@ -10,6 +14,9 @@
 			$this->conexion = Conectar::conexion();
 		}
 
+		/**
+		 * Lista desplegable roles de Usuario
+		 */
 		public function rol(){
 			$response = array();
 			
@@ -23,6 +30,9 @@
 			return $response;
 		}
 
+		/**
+		 * Lista de los usuarios de la aplicación
+		 */
 		public function listUser(){
 
 			$sql = "SELECT * FROM usuario";
@@ -35,6 +45,9 @@
 			return $response;
 		}
 
+		/**
+		 * Completar la información de Usuario
+		 */
 		public function completUser($id){
 
 			$sql = "SELECT * FROM usuario WHERE identificacion = '".$id."'";
@@ -48,6 +61,10 @@
 			return $response[0];
 		}
 
+		/**
+		 * @param Array $datos Datos del usuario
+		 * Enviar los datos del Usuario Nuevo
+		 */
 		public function envioDatos($datos){
 			$array =  array($datos);
 			$validar = $array[0]["valid"];
@@ -93,6 +110,10 @@
 			return $result;
 		}
 
+		/**
+		 * Eliminar Usuario
+		 * @param int $id Numero Registro Usuario
+		 */
 		public function eliminarUsuario( $id ){
 
 			$sql = "DELETE FROM usuario WHERE identificacion = '$id'";

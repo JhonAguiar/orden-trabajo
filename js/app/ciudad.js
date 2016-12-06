@@ -112,7 +112,9 @@ function show(){
     } );
 }
 
-
+/**
+ * Paginación de las Ciudades
+ */
 function pagination(action){
     if(action === "add"){
         start += 10;

@@ -10,6 +10,9 @@ var Cliente = ( function(){
 		this.bindEvents(); 
 	}
 
+	/**
+	 * Eventos al cargar el DOM
+	 */
 	Cliente.prototype.bindEvents = function() {
 		var scope = this;
 		
@@ -26,8 +29,11 @@ var Cliente = ( function(){
 			e.preventDefault()
 			scope.completarDatos( this );
 		})
-	};
+	}
 
+	/**
+	 * LISTADO DE CLIENTES
+	 */
 	Cliente.prototype.listarClientes = function(){
 		$.ajax({
 			url: "../controller/ClienteController.php" ,
@@ -61,6 +67,9 @@ var Cliente = ( function(){
 		})
 	}
 
+	/**
+	 * Guardar el Formulario de clientes
+	 */ 
 	Cliente.prototype.saveForm = function( element ) {
 		var scope = this;
 		console.log(validar);
@@ -77,7 +86,7 @@ var Cliente = ( function(){
 
 			}
 		})
-	};
+	}
 
 	/**
 	 * COMPLETAR LOS DATOS DEL FORMULARIO
@@ -113,7 +122,6 @@ var Cliente = ( function(){
 					$("#consecutivo").val(data.consecutivo);
 					$("#tipo-cliente").val(data.tipo_cliente);
 					$("#ciudad").val(data.ciudad);
-					console.log(data);
 					$("#taber-two").click();
 					validar = 0;
 				}

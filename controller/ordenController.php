@@ -37,6 +37,15 @@
 			$orden = $ord->mostrarOrdenes($_POST["id"]);
 			echo json_encode($orden);
 		break;
+		case 'borrarOt':
+			$ord = new OrdenTrabajo();
+			$orden = $ord->borrarOt($_POST["id"]);
+			if ( $orden ) {
+				echo json_encode( array( 'success'=>true ) );
+			} else {
+				echo json_encode( array( 'success'=>false ) );
+			}
+		break;
 		default:
 			echo "Ha ocurrido un problema";
 		break;
