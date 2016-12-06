@@ -147,6 +147,19 @@
 
 			return $row;
 		}
+
+		/**
+		 * Eliminar registro Orden de Trabajo
+		 */
+		public function borrarOt($id){
+
+			$sql = "DELETE FROM orden_trabajo WHERE cliente = '$id'";
+
+			$result = $this->conexion->query($sql);
+
+			return $result;
+		}
+
 	}
 
 ?>

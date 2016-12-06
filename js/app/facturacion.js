@@ -15,9 +15,7 @@ var facturacion = (function(){
 			e.preventDefault()
 			scope.listarOT($(this).val());
 		})
-
-
-	};
+	}
 
 	/**
 	 * LISTAR LAS ORDENES DE TRABAJO

@@ -29,7 +29,7 @@ var Cliente = ( function(){
 			e.preventDefault()
 			scope.completarDatos( this );
 		})
-	};
+	}
 
 	/**
 	 * LISTADO DE CLIENTES
@@ -86,7 +86,7 @@ var Cliente = ( function(){
 
 			}
 		})
-	};
+	}
 
 	/**
 	 * COMPLETAR LOS DATOS DEL FORMULARIO
@@ -122,7 +122,6 @@ var Cliente = ( function(){
 					$("#consecutivo").val(data.consecutivo);
 					$("#tipo-cliente").val(data.tipo_cliente);
 					$("#ciudad").val(data.ciudad);
-					console.log(data);
 					$("#taber-two").click();
 					validar = 0;
 				}

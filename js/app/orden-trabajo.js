@@ -62,6 +62,11 @@ var orden = (function(){
 			e.preventDefault();
 			scope.completarInfo( this );
 		} )
+
+		$( document ).on( "click" , ".eliminar-registro" , function(e){
+			e.preventDefault();
+			scope.borrarOt( this );
+		} )
 	};
 
 	/**
@@ -275,6 +280,20 @@ var orden = (function(){
 
 			}
 		});
+	}
+
+	orden.prototype.borrarOt = function( element ){
+		var ele = $(element).parent().parent().attr("id");
+		$.ajax({
+			url: "../controller/ordenController.php",
+			data: "a=borrarOt"+ele
+			method: "POST",
+			success: function( data ){
+
+			},error: function(){
+
+			}
+		})
 	}
 
 	return orden;
