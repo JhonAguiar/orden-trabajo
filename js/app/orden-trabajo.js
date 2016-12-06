@@ -191,6 +191,7 @@ var orden = (function(){
 				scope.compAnu(data["cliente"]);
 				$("#anunciante").val(data["anunciante"]);
 				$("#tipo_ot").val(data["tipo_ot"]);
+				scope.compNit(data["cliente"]);
 				$("#aplicacion").val(data["aplicacion"]);
 				$("#val-impresos").val(data["valor_impresion"]);
 				$("#val-radio").val(data["valor_radio"]);
@@ -231,6 +232,22 @@ var orden = (function(){
 				alert("Ha ocurrido un error");
 			}
 		})
+	}
+
+	orden.prototype.compNit = function(element){
+		$.ajax({
+			url: "../controller/ordenController.php",
+			data: "a=nit&id="+element,
+			method: "POST",
+			success: function(data){
+				if(data.length > 0){
+					data = $.parseJSON(data);
+					$("#nit_anunciante").val(data.nit);
+				}
+			},error: function(){
+
+			}
+		});
 	}
 
 	return orden;

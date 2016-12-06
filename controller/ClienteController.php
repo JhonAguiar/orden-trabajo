@@ -44,11 +44,11 @@
 			$anunciante = $cli->completeAnun( $_POST["id"] );
 			echo json_encode($anunciante);
 		break;
-                case 'eliminarAnunciante':
-                    $cli = new Cliente();
-                    $anunciante = $cli->eliminarAnunciante( $_POST["id"] );
-                    echo json_encode($anunciante);
-                    break;
+        case 'eliminarAnunciante':
+            $cli = new Cliente();
+            $anunciante = $cli->eliminarAnunciante( $_POST["id"] );
+            echo json_encode($anunciante);
+        break;
 		default:
 			echo json_encode("Ha ocurrido un error al consultar el problema");
 		break;
