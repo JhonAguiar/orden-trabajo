@@ -54,6 +54,11 @@ var orden = (function(){
 			e.preventDefault();
 			scope.guardarOrdenes( this );
 		})
+
+		$( document ).on( "click", ".editar-registro" , function(e){
+			e.preventDefault();
+			scope.completarInfo( this );
+		} )
 	};
 
 	orden.prototype.completarAnunciantes = function( element ){
@@ -132,8 +137,7 @@ var orden = (function(){
 				data = $.parseJSON(data);
 				if(data != "ERROR"){	
 					$.each(data , function(i ,v){
-						console.log(v);
-						$( "<tr>" ).append(
+						$( "<tr>" , { "id" : v.id_cliente }  ).append(
 							$( "<td>" , { "text" : v.id_orden_trabajo } ),
 							$( "<td>" , { "text" : v.cliente}),
 							$( "<td>" , { "text" : v.nombre } ),
@@ -165,12 +169,68 @@ var orden = (function(){
 			data: "a=guardarOrden&valid="+validar+"&"+$(element).serialize(),
 			method: "POST",
 			success: function( data ){
-				console.log(data);
+
 			},error: function(){
 
 			}
 		})
+	}
 
+	orden.prototype.completarInfo = function(element){
+		scope = this;
+		var ele = $(element).parent().parent().attr("id");
+		$("#taber-two").click();
+		$.ajax({
+			url: "../controller/ordenController.php",
+			method: "POST",
+			data: "a=mostrarOrdenes&id="+ele,
+			success: function( response ){
+				data = $.parseJSON(response);
+				$("#id_orden_trabajo").val(data["id_orden_trabajo"]);
+				$("#nombre_cliente").val(data["cliente"]);
+				scope.compAnu(data["cliente"]);
+				$("#anunciante").val(data["anunciante"]);
+				$("#tipo_ot").val(data["tipo_ot"]);
+				$("#aplicacion").val(data["aplicacion"]);
+				$("#val-impresos").val(data["valor_impresion"]);
+				$("#val-radio").val(data["valor_radio"]);
+				$("#val-television").val(data["valor_television"]);
+				$("#val-internet").val(data["valor_internet"]);
+				$("#val-analisis").val(data["valor_analisis"]);
+				$("#observ_cierre").val(data["observaciones"]);
+				$("#marca").val(data["marca"]);
+				$("#entorno").val(data["entorno"]);
+				$("#competencias").val(data["competencias"]);
+				$("#sectores").val(data["sectores"]);
+				$("#categoria").val(data["categoria"]);
+				$("#desde").val(data["desde"]);
+				$("#hasta").val(data["hasta"]);
+				$("#observaciones_2").val(data["observaciones_2"]);
+				validar = 0;
+			},error: function(){
+
+			}
+		})
+	}
+
+	orden.prototype.compAnu = function( element ){
+		$.ajax({
+			url: "../controller/ordenController.php",
+			data: "a=completarAnunciante&id="+element,
+			method: "POST",
+			success: function( data ){
+				if(data.length > 0){
+					data = $.parseJSON(data);
+					$.each(data , function(i, v){
+						$("<option>" , { "value" : v.id_anunciante , "text" : v.nombre } ).appendTo("#anunciante");
+					})
+				}else{
+					alert("asdasd")
+				}
+			},error: function(){
+				alert("Ha ocurrido un error");
+			}
+		})
 	}
 
 	return orden;

@@ -7,7 +7,7 @@
         require_once "../model/OrdenTrabajo.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">s
     <head>
         <meta charset="UTF-8">
         <title>Orden de Trabajo - OT</title>
@@ -46,7 +46,7 @@
             <a>
                 Orden de Trabajo
             </a>
-        </div>
+        </div>s
         <div class="titulo-seccion">
             <h3>APROBACIÓN</h3>
         </div>
@@ -73,8 +73,7 @@
     <script src="../js/menu.js"></script>
     <script src="../js/tabs.js"></script>
     <script src="../js/vertical-tab.js"></script>
-    <!--<script src="../js/vista-previa.js"></script>-->
-    <script src="../js/app/orden-trabajo.js"></script>
+    <script src="../js/app/aprobacion.js"></script>
 </html>
 <?php
     }else{

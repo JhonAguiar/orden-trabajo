@@ -67,7 +67,7 @@
 
 			$response = "ERROR";
 
-			$sql = "SELECT ot.id_orden_trabajo , cli.cliente , an.nombre , tot.tipo_ot FROM orden_trabajo as ot INNER JOIN cliente as cli on cli.id_cliente = ot.cliente INNER JOIN anunciante as an ON ot.anunciante = an.id_anunciante INNER JOIN tipo_ot as tot ON tot.id_tipo = ot.tipo_ot";
+			$sql = "SELECT ot.id_orden_trabajo , cli.cliente , an.nombre , tot.tipo_ot , ot.cliente as id_cliente FROM orden_trabajo as ot INNER JOIN cliente as cli on cli.id_cliente = ot.cliente INNER JOIN anunciante as an ON ot.anunciante = an.id_anunciante INNER JOIN tipo_ot as tot ON tot.id_tipo = ot.tipo_ot";
 
 			$result = $this->conexion->query($sql);
 			if (mysqli_num_rows($result) != 0){
@@ -127,6 +127,17 @@
                         echo $this->conexion->error;
 
 			return $result;
+		}
+
+		public function mostrarOrdenes($id){
+
+			$sql = "SELECT * FROM orden_trabajo where cliente = $id";
+
+			$result = $this->conexion->query($sql);
+
+			$row = $result->fetch_assoc();
+
+			return $row;
 		}
 	}
 
