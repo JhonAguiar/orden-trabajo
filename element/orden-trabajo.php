@@ -102,7 +102,7 @@
 	                        <div class="large-5 columns">
 	                            <label>Anunciante
 	                                <select name="anunciante" id="anunciante">
-	                                    <option value="1">-- Seleccione una opción --</option>
+	                                    <option value="">-- Seleccione una opción --</option>
 	                                </select>
 	                            </label>
 	                        </div>

@@ -28,19 +28,19 @@
 
 			$result = $this->conexion->query($sql);
 
-			return $result;
+			$row = $result->fetch_assoc();
+
+			return $row;
 		}
 
 		public function listarOT($id){
 
-			$sql = "SELECT * FROM orden_trabajo where cliente = $id";
+			$sql = "SELECT ord.* , cli.nit , cli.cliente as nombrecliente FROM orden_trabajo as ord  INNER JOIN cliente as cli ON cli.id_cliente = ord.cliente where ord.cliente = $id";
 
 			$result = $this->conexion->query($sql);
+			$row = $result->fetch_assoc();
 
-			while($row = $result->fetch_assoc()){
-				$response[] = $row;
-			}
-			return $response;
+			return $row;
 		}
 
 	}

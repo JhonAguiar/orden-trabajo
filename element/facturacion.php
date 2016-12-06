@@ -68,14 +68,8 @@
 								<th>Acciones</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+						<tbody id="mostrarFacturas">
+				
 						</tbody>
 					</table>
 				</div>
@@ -85,7 +79,7 @@
 					<div class="row">
 						<div class="large-2 columns">
 					      	<label>Numéro de factura
-					        	<input type="text" name="nombre_cliente" id="nombre_cliente" readonly>
+					        	<input type="text" name="numero_factura" id="numero_factura" readonly>
 					      	</label>
 					    </div>
 						<div class="large-6 columns">
@@ -104,7 +98,7 @@
 					    </div>
 					    <div class="large-4 columns">
 					      	<label>Nombre Corto
-					        	<input type="text" name="nombre_cliente" id="nombre_cliente" readonly>
+					        	<input type="text" name="nombre_corto" id="nombre_corto" readonly>
 					        </label>
 					    </div>
 					</div>
@@ -157,7 +151,7 @@
 					</div>
 					<div class="row">
 						<div class="large-12 columns text-center">
-							OT's Facturar
+							<h3>OT's Facturar</h3>
 						</div>
 					</div>
 					<div class="row">
@@ -172,40 +166,12 @@
 										<th>Facturar</th>
 									</tr>
 								</thead>
-								<tbody>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
+								<tbody id="mostrarOt">
+									
 								</tbody>
 							</table>
 							<hr>
 						</div>
-					</div>
-					<div class="row">
-						<div class="large-12 columns text-center">
-							<button class="btn-sender">Agregar Información Secundaria</button>
-							<hr>
-						</div>
-					</div>
-					<div class="row">
-						<table>
-							<thead>
-								<tr>
-									<th>CANTIDAD</th>
-									<th>DESCRIPCIÓN</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
 					</div>
 					<div class="row">
 						<div class="large-12 columns text-right">

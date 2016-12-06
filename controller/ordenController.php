@@ -32,6 +32,11 @@
 				echo json_encode( array( 'success'=>false ) );
 			}
 		break;
+		case 'mostrarOrdenes':
+			$ord = new OrdenTrabajo();
+			$orden = $ord->mostrarOrdenes($_POST["id"]);
+			echo json_encode($orden);
+		break;
 		default:
 			echo "Ha ocurrido un problema";
 		break;

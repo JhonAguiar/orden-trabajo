@@ -11,7 +11,8 @@
 		break;
 		case 'completeCliente':
 			$fac = new Facturacion();
-			$factura = $fac->
+			$factura = $fac->completeCliente($_POST["id"]);
+			echo json_encode($factura);
 		break;
 		default:
 			echo json_encode("Ha ocurrido un problema");
