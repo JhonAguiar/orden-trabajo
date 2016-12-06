@@ -6,7 +6,7 @@
         <div class="small-12 large-offset-4 large-4 columns">
             <div class="circle-perfil" style="overflow: hidden;">
                 <?php
-                //echo "<img src='img/no-photo.png' alt=''>";                
+                //echo "<img src='img/no-photo.png' alt=''>"; 
                 ?>
                 <img src="<?php echo "img/userImg/".$_SESSION['src']; ?>" alt="" style="width: auto; height: 100%;">
             </div>

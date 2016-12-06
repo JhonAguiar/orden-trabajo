@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../model/Perfil.php';
 //var_dump($_POST);
 //var_dump($_FILES);
@@ -18,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($extension == ".jpg" || $extension == ".png") {
         $filename = $_FILES['foto']['tmp_name'];       
 
+        unlink($url.$_SESSION['src']);
+        
         if (move_uploaded_file($filename, $url.$name)) {
             echo "foto subida correctamente\n";
         } else {

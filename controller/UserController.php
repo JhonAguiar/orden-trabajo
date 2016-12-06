@@ -16,7 +16,7 @@
 		break;
 
 		case 'envioDatos':
-			$usr = new Usuario();
+			$usr = new Usuario();                        
 			$user = $usr->envioDatos( $_POST );			
 			if ( $user ) {
 				echo json_encode( array( 'success'=>true ) );
