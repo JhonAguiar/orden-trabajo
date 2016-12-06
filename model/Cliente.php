@@ -2,6 +2,11 @@
 
 	require_once "../db/conectar.php";
 
+	/**
+	 * class Cliente
+	 * posee los metodos de interacción con el Cliente
+	 * @author Jhon Aguiar Moreno , Giovanny Arturo Rincon
+	 */
 	class Cliente {
 
 		private $conexion;
@@ -10,6 +15,9 @@
 			$this->conexion =  Conectar::conexion();
 		}
 
+		/**
+		 * LISTA DATOS DEL CLIENTE
+		 */ 
 		public function cliente (){
 			$response = array();
 			
@@ -23,6 +31,10 @@
 			return $response;
 		}
 
+		/**
+		 * @param Array array()
+		 * @var Array $data Almacena un arreglo con los datos del cliente nuevo
+		 */
 		public function guardarCliente( $data = array() ){
 			$valid = $data['valid'];
 			$fecha = $data['fecha'];
@@ -106,7 +118,9 @@
 			return $result;
 		}
 
-
+		/**
+		 * Seleccionar un cliente en especifíco
+		 */
 		public function completarDatos2( $id ){
 			
 			$sql = "SELECT * FROM cliente where consecutivo = '".$id."' ";
@@ -120,6 +134,9 @@
 			return $response[0];
 		}
 
+		/**
+		 * Mostrar los anunciantes del cliente
+		 */
 		public function listAnunciante(){
 			$response = array();
 			

@@ -10,6 +10,9 @@ var Cliente = ( function(){
 		this.bindEvents(); 
 	}
 
+	/**
+	 * Eventos al cargar el DOM
+	 */
 	Cliente.prototype.bindEvents = function() {
 		var scope = this;
 		
@@ -28,6 +31,9 @@ var Cliente = ( function(){
 		})
 	};
 
+	/**
+	 * LISTADO DE CLIENTES
+	 */
 	Cliente.prototype.listarClientes = function(){
 		$.ajax({
 			url: "../controller/ClienteController.php" ,
@@ -61,6 +67,9 @@ var Cliente = ( function(){
 		})
 	}
 
+	/**
+	 * Guardar el Formulario de clientes
+	 */ 
 	Cliente.prototype.saveForm = function( element ) {
 		var scope = this;
 		console.log(validar);

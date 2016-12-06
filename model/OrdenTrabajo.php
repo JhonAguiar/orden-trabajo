@@ -2,6 +2,11 @@
 
 	require_once "../db/conectar.php";
 
+	/**
+	 * class Cliente
+	 * posee los metodos de interacción con el Cliente
+	 * @author Jhon Aguiar Moreno , Giovanny Arturo Rincon
+	 */
 	class OrdenTrabajo{
 
 		private $conexion;
@@ -129,6 +134,9 @@
 			return $result;
 		}
 
+		/**
+		 * Completar los datos de la orden de trabajo para actualizar datos
+		 */
 		public function mostrarOrdenes($id){
 
 			$sql = "SELECT * FROM orden_trabajo where cliente = $id";

@@ -1,7 +1,11 @@
 <?php
 
 	require_once "../db/conectar.php";
-
+	/**
+	 * class Cliente
+	 * Clase con la parametrización inicial de la aplicación
+	 * @author Jhon Aguiar Moreno , Giovanny Arturo Rincon
+	 */
 	class General{
 		
 		private $conexion;

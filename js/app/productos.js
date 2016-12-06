@@ -1,4 +1,6 @@
 var validar = 1;
+
+//CLOSURE ESPECIFICO
 var Producto = ( function(){
 
 	function Producto (){

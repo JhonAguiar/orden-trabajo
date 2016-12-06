@@ -10,6 +10,9 @@ var orden = (function(){
 		this.bindEvents();
 	}
 
+	/**
+	 * Eventos al cargar el DOM
+	 */
 	orden.prototype.bindEvents = function() {
 
 		var scope = this;
@@ -61,6 +64,9 @@ var orden = (function(){
 		} )
 	};
 
+	/**
+	 * Completar datos de anunciantes en la OT
+	 */
 	orden.prototype.completarAnunciantes = function( element ){
 		if(element != ""){
 			$("#anunciante").removeAttr("disabled");
@@ -103,6 +109,9 @@ var orden = (function(){
 		}
 	}
 
+	/**
+	 * CALCULAR EL VALOR DE LOS MEDIOS
+	 */
 	orden.prototype.calcularMedios = function(){
 		var impresos = parseInt($("#val-impresos").val());
 		var radio = parseInt($("#val-radio").val());
@@ -114,6 +123,9 @@ var orden = (function(){
 		$("#total").val(total);
 	}
 
+	/**
+	 * CALCULAR LOS DIAS DISPONIBLES ENTRE DOS FECHAS
+	 */
 	orden.prototype.calcularDias = function(event){
 		var desde = $("#desde").val();
 		var hasta = $(event).val()
@@ -128,6 +140,9 @@ var orden = (function(){
 		$("#dias").val(dias);
 	}
 
+	/**
+	 * LISTAR LAS ORDENES DE TRABAJO
+	 */
 	orden.prototype.listarOrdenTrabajo = function(){
 		$.ajax({
 			url: "../controller/ordenController.php",
@@ -163,6 +178,9 @@ var orden = (function(){
 		})
 	}
 
+	/**
+	 * GUARDAR LA ORDEN DE TRABAJO
+	 */
 	orden.prototype.guardarOrdenes = function( element ){
 		$.ajax({
 			url: "../controller/ordenController.php",
@@ -176,6 +194,9 @@ var orden = (function(){
 		})
 	}
 
+	/**
+	 * COMPLETAR LOS DATOS A EDITAR EN LA OT
+	 */
 	orden.prototype.completarInfo = function(element){
 		scope = this;
 		var ele = $(element).parent().parent().attr("id");
@@ -214,6 +235,9 @@ var orden = (function(){
 		})
 	}
 
+	/**
+	 * TRAER DATOS DEL ANUNCIANTE
+	 */
 	orden.prototype.compAnu = function( element ){
 		$.ajax({
 			url: "../controller/ordenController.php",
@@ -234,6 +258,9 @@ var orden = (function(){
 		})
 	}
 
+	/**
+	 * CARGAR EL NIT DEL CLIENTE
+	 */
 	orden.prototype.compNit = function(element){
 		$.ajax({
 			url: "../controller/ordenController.php",
