@@ -45,7 +45,7 @@ if($_SESSION['valido']){
 						</a>
 					</div>
 					<div class="columns large-3">
-						<a href="#" id="cursos"> 	
+                                            <a href="manual_de_usuario.pdf" id="cursos" target="_blank"> 	
 							<div class="card">
 								<div class="row">
 									<div class="large-12 columns">
